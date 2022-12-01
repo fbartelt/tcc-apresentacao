@@ -40,12 +40,70 @@
 				<section>
 					<h3>da Vinci Si</h3>
 				</section>
+				<!------------------------------------------------------------
+				-------------------- DETECCAO DE COLISOES --------------------
+				 ------------------------------------------------------------>
 				<section>
 					<h3>Detecção de colisões</h3>
 				</section>
 				<section>
-					<h4 style="margin: 0px; padding: 0px;text-align: left;">Detecção de colisões</h4>
-					asda
+					<!-- <div class="headersp">
+						<h6>Detecção de colisões</h6>
+					</div> -->
+					<div class="leftlist">
+							<div class="leftlistlist"><ul>
+								<li class="fragment semi-fade-out" data-fragment-index="1">Alto custo computacional</li>
+								<li class="fragment fade-in-then-semi-out" data-fragment-index="1">Primitivas de colisão</li>
+								<li class="fragment fade-in-then-semi-out" data-fragment-index="2">Hierarquia de primitivas</li>
+								<li  class="fragment fade-in" data-fragment-index="3">Estimativa de distâncias</li>
+							</ul></div>
+							<div class="r-stack">
+								<div><figure class="figlegend">
+									<img class="fragment fade-in-then-out" data-fragment-index="1" src="https://raw.githubusercontent.com/fbartelt/tcc-apresentacao/master/media/primitives.png" width="65%" height="65%">
+									<figcaption class="fragment fade-in-then-out" data-fragment-index="1" >(DINAS; BAÑÓN, 2015)</figcaption>
+								</figure></div>
+								<div><figure class="figlegend">
+									<div><img class="fragment fade-in-then-out" data-fragment-index="2" src="https://raw.githubusercontent.com/fbartelt/tcc-apresentacao/master/media/volumehierarchy.png" width="65%" height="65%"></div>
+									<figcaption class="fragment fade-in-then-out" data-fragment-index="2" >(BRADSHAW; GARETH, 2002)</figcaption>
+								</figure></div>
+							</div>
+					</div>
+				</section>
+				<!------------------------------------------------------------
+				-------------------- PROJECOES ALTERNADAS --------------------
+				 ------------------------------------------------------------>
+				<section>
+					<h5 style="text-align: left;"> Método de Projeções Alternadas de Von Neumann</h5>
+					<div class="r-stack">
+						<div class="fragment fade-out" data-fragment-index="1" >
+							<p style="font-size: 20pt;"> Sejam $C, D$ subespaços convexos do $\mathbb{R}^n$, $P_C(x)$ a projeção de 
+								um ponto $x$ em $C$, $P_D(x)$ a projeção de um ponto $x$ em $D$, então para cada $x \in\mathbb{R}^n$ vale (ESCALANTE; RAYDAN, 2011):</p>
+							<div>
+								\[
+								\lim_{n\to\infty} (P_DP_C)^nx = P_{C\cap D}(x)
+								\]
+							</div>
+							<p style="font-size: 20pt;">Se $C\cap D=\varnothing$ o método converge a pontos testemunha $x_c^*, x_d^*$,
+								que correspondem ao par de pontos que minimiza a distância entre$C$ e $D$ (CHENEY; GOLDSTEIN, 1959).</p>
+						</div>
+						<div class="row-sidebysideIMG">
+							<div class="col-sidebysideIMG"><figure class="figlegend">
+								<div><img class="fragment fade-in-then-out" data-fragment-index="1" src="https://raw.githubusercontent.com/fbartelt/tcc-apresentacao/master/media/VonNeumann_intersect.png" width="76%" height="76%"></div>
+								<figcaption class="fragment fade-in-then-out" data-fragment-index="1" style="margin-left: 6%;">Com interseção (colisão) (BOYD;<br>DATTORRO, 2003)</figcaption>
+							</figure></div>
+							<div class="col-sidebysideIMG"><figure class="figlegend">
+								<div><img class="fragment fade-in-then-out" data-fragment-index="1" src="https://raw.githubusercontent.com/fbartelt/tcc-apresentacao/master/media/VonNeumann_NOTintersect.png" width="100%" height="100%"></div>
+								<figcaption class="fragment fade-in-then-out" data-fragment-index="1" style="margin-left: 1.5%;">Sem interseção (colisão) (BOYD; DATTORRO, 2003)</figcaption>
+							</figure></div>
+						</div>
+						<div>
+							<figure class="figlegend">
+								<div><img class="fragment fade-in" data-fragment-index="2" style="margin-top:10px" src="https://raw.githubusercontent.com/fbartelt/tcc-apresentacao/master/media/witnessPointsSImulados.png" width="60%" height="60%"></div>
+							</figure>
+							<div style="font-size: 18pt; margin: 0; padding: 0; text-align: left;" class="fragment fade-in" data-fragment-index="2">Esferas pretas indicam os pontos testemunha $x^*_c$. Esferas vermelhas 
+								indicam os pontos testemunha $x^*_d$</div>							
+						</div>
+					</div>
 				</section>
 			</div>
 		</div>
@@ -54,6 +112,7 @@
 		<script src="plugin/notes/notes.js"></script>
 		<script src="plugin/markdown/markdown.js"></script>
 		<script src="plugin/highlight/highlight.js"></script>
+		<script src="plugin/math/math.js"></script>
 		<script>
 			// More info about initialization & config:
 			// - https://revealjs.com/initialization/
@@ -62,7 +121,7 @@
 				hash: true,
 				slideNumber: true,
 				// Learn about plugins: https://revealjs.com/plugins/
-				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMath.KaTeX]
 			});
 		</script>
 	</body>
