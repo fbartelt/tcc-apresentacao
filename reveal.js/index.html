@@ -76,15 +76,15 @@
 					<h5 style="text-align: left;"> Método de Projeções Alternadas de Von Neumann</h5>
 					<div class="r-stack">
 						<div class="fragment fade-out" data-fragment-index="1" >
-							<p style="font-size: 20pt;"> Sejam $C, D$ subespaços convexos do $\mathbb{R}^n$, $P_C(x)$ a projeção de 
-								um ponto $x$ em $C$, $P_D(x)$ a projeção de um ponto $x$ em $D$, então para cada $x \in\mathbb{R}^n$ vale (ESCALANTE; RAYDAN, 2011):</p>
+							<p style="font-size: 20pt;"> Sejam $C, D$ subespaços convexos do $\mathbb{R}^n$, $P_C(x)$ a projeção ortogonal de 
+								um ponto $x$ em $C$, $P_D(x)$ a projeção ortogonal de um ponto $x$ em $D$, então para cada $x \in\mathbb{R}^n$ vale (ESCALANTE; RAYDAN, 2011):</p>
 							<div>
 								\[
 								\lim_{n\to\infty} (P_DP_C)^nx = P_{C\cap D}(x)
 								\]
 							</div>
 							<p style="font-size: 20pt;">Se $C\cap D=\varnothing$ o método converge a pontos testemunha $x_c^*, x_d^*$,
-								que correspondem ao par de pontos que minimiza a distância entre$C$ e $D$ (CHENEY; GOLDSTEIN, 1959).</p>
+								que correspondem ao par de pontos que minimiza a distância entre $C$ e $D$ (CHENEY; GOLDSTEIN, 1959).</p>
 						</div>
 						<div class="row-sidebysideIMG">
 							<div class="col-sidebysideIMG"><figure class="figlegend">
@@ -103,6 +103,45 @@
 							<div style="font-size: 18pt; margin: 0; padding: 0; text-align: left;" class="fragment fade-in" data-fragment-index="2">Esferas pretas indicam os pontos testemunha $x^*_c$. Esferas vermelhas 
 								indicam os pontos testemunha $x^*_d$</div>							
 						</div>
+					</div>
+				</section>
+				<!------------------------------------------------------------
+				-------------------- FUNCAO DE DISTANCIA ---------------------
+				 ------------------------------------------------------------>
+				<section>
+					<h5 style="text-align: left;"> Função de distância</h5>
+					<p style="font-size: 20pt; text-align: left;"> Seja $C$ o conjunto de pontos na superfície de um elo do robô e $D$ o conjunto de pontos na superfície de um obstáculo, 
+					pode-se definir a função de distância $\Psi_{CD}(q)$ e sua jacobiana $J_{\Psi}\equiv J_{\Psi_{CD}}(q):$</p>
+					<div style="font-size: 18pt;" class="r-stack">
+						<div class="fragment fade-out" data-fragment-index="1" style="position:relative; margin-left: auto; margin-right: auto; left: 0; right: 0;"> 
+							\[\begin{align*}
+							&\Psi_{CD}(q) = \|x_c^*(q) - x_d^*(q)\|\\
+							&\implies \nabla \Psi_{CD}(q) = J_{\Psi} = \begin{pmatrix} \frac{\partial \Psi_{CD}(q)}{\partial q_1} \\ \frac{\partial \Psi_{CD}(q)}{\partial q_2} \\ \vdots \\ \frac{\partial \Psi_{CD}(q)}{\partial q_n}\end{pmatrix}
+							\end{align*}\]
+						</div>
+						<div class="fragment fade-in" data-fragment-index="1" style="position:absolute; text-align:center; margin-left: auto; margin-right: auto; left: 0; right: 0;">
+							\[\begin{align*}
+							&\Psi_{CD}(q) = \|x_c^*(q) - x_d^*(q)\|\\
+							&J_\Psi= \left(J_{{x_c}^*} - J_{{x_d}^*}\right)^T\cdot\frac{x_c^*(q) - x_d^*(q)}{\Psi_{CD}(q)},\\
+							&J_{{x_c}^*} = J_{v, p_o}(q) + S(p_o - x_c^*)J_{\omega,{p_o}}(q)
+							\end{align*}\]		
+						</div>
+					</div>
+				</section>
+				<!------------------------------------------------------------
+				------------------------- RESULTADOS -------------------------
+				 ------------------------------------------------------------>
+				<section>
+					<h3>RESULTADOS</h3>
+				</section>
+				<section>
+					<h5 style="text-align: left;"> Função de distância</h5>
+					<div style="font-size: 18pt;">
+					\[\begin{align*}
+					&\Psi_{CD}(q) = \|x_c^*(q) - x_d^*(q)\|\\
+					&J_\Psi= \left(J_{{x_c}^*} - J_{{x_d}^*}\right)^T\cdot\frac{x_c^*(q) - x_d^*(q)}{\Psi_{CD}(q)},\\
+					&J_{{x_c}^*} = J_{v, p_o}(q) + S(p_o - x_c^*)J_{\omega,{p_o}}(q)
+					\end{align*}\]
 					</div>
 				</section>
 			</div>
