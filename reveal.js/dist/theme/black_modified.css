@@ -26,9 +26,9 @@ section.has-light-background, section.has-light-background h1, section.has-light
   --r-heading-text-shadow: none;
   --r-heading-font-weight: 600;
   --r-heading1-text-shadow: none;
-  --r-heading1-size: 2.5em;
-  --r-heading2-size: 1.6em;
-  --r-heading3-size: 1.3em;
+  --r-heading1-size: 40pt;
+  --r-heading2-size: 30pt;
+  --r-heading3-size: 25px;
   --r-heading4-size: 1em;
   --r-code-font: monospace;
   --r-link-color: #42affa;
@@ -94,10 +94,16 @@ section.has-light-background, section.has-light-background h1, section.has-light
 
 .reveal h2 {
   font-size: var(--r-heading2-size);
+  text-align: left; 
+  vertical-align:top;
 }
 
 .reveal h3 {
   font-size: var(--r-heading3-size);
+  vertical-align:top;
+  text-align:left;
+  height:50px;
+  color: var(--r-link-color);
 }
 
 .reveal h4 {
@@ -480,4 +486,24 @@ section.has-light-background, section.has-light-background h1, section.has-light
 /* Clear floats after image containers */
 .row-sidebysideIMG {
   display: flex;
-} 
+}
+
+.reveal .slides .slidecontent{
+  width:1200px;
+  height:600px;
+  margin-top: 40px;
+}
+
+.slidecontent p{
+  text-align: left;
+  font-size: 20pt;
+}
+
+.slidecontent .simulation{
+  display:table-cell;
+  vertical-align: top;
+  transform:scale(0.9);
+  position: absolute;
+  top: 80px;
+  left: 150px;
+}
