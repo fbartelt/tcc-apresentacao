@@ -20,9 +20,7 @@
 					<h6 style="font-size: 10pt">Apresentação de Monografia<br>Engenharia Elétrica - Universidade Federal de Minas Gerais</h6>
 					<br><br><br>
 					<h1>Modelagem e Controle de um Robô para Cirurgias</h1>
-					<br>
-					<br>
-					<br>
+					<br><br><br>
 					<div class="cabecalho">
 						<table>
 							<tr>
@@ -57,11 +55,11 @@
 							</ul></div>
 							<div class="r-stack">
 								<div><figure class="figlegend">
-									<img class="fragment fade-in-then-out" data-fragment-index="1" src="https://raw.githubusercontent.com/fbartelt/tcc-apresentacao/master/media/primitives.png" width="65%" height="65%">
+									<img class="fragment fade-in-then-out" data-fragment-index="1" src="resources/primitives.png" width="65%" height="65%">
 									<figcaption class="fragment fade-in-then-out" data-fragment-index="1" >(DINAS; BAÑÓN, 2015)</figcaption>
 								</figure></div>
 								<div><figure class="figlegend">
-									<div><img class="fragment fade-in-then-out" data-fragment-index="2" src="https://raw.githubusercontent.com/fbartelt/tcc-apresentacao/master/media/volumehierarchy.png" width="65%" height="65%"></div>
+									<div><img class="fragment fade-in-then-out" data-fragment-index="2" src="resources/volumehierarchy.png" width="65%" height="65%"></div>
 									<figcaption class="fragment fade-in-then-out" data-fragment-index="2" >(BRADSHAW; GARETH, 2002)</figcaption>
 								</figure></div>
 							</div>
@@ -88,17 +86,17 @@
 						</div>
 						<div class="row-sidebysideIMG">
 							<div class="col-sidebysideIMG"><figure class="figlegend">
-								<div><img class="fragment fade-in-then-out" data-fragment-index="1" src="https://raw.githubusercontent.com/fbartelt/tcc-apresentacao/master/media/VonNeumann_intersect.png" width="76%" height="76%"></div>
+								<div><img class="fragment fade-in-then-out" data-fragment-index="1" src="resources/VonNeumann_intersect.png" width="76%" height="76%"></div>
 								<figcaption class="fragment fade-in-then-out" data-fragment-index="1" style="margin-left: 6%;">Com interseção (colisão) (BOYD;<br>DATTORRO, 2003)</figcaption>
 							</figure></div>
 							<div class="col-sidebysideIMG"><figure class="figlegend">
-								<div><img class="fragment fade-in-then-out" data-fragment-index="1" src="https://raw.githubusercontent.com/fbartelt/tcc-apresentacao/master/media/VonNeumann_NOTintersect.png" width="100%" height="100%"></div>
+								<div><img class="fragment fade-in-then-out" data-fragment-index="1" src="resources/VonNeumann_NOTintersect.png" width="100%" height="100%"></div>
 								<figcaption class="fragment fade-in-then-out" data-fragment-index="1" style="margin-left: 1.5%;">Sem interseção (colisão) (BOYD; DATTORRO, 2003)</figcaption>
 							</figure></div>
 						</div>
 						<div>
 							<figure class="figlegend">
-								<div><img class="fragment fade-in" data-fragment-index="2" style="margin-top:10px" src="https://raw.githubusercontent.com/fbartelt/tcc-apresentacao/master/media/witnessPointsSImulados.png" width="60%" height="60%"></div>
+								<div><img class="fragment fade-in" data-fragment-index="2" style="margin-top:10px" src="resources/witnessPointsSImulados.png" width="60%" height="60%"></div>
 							</figure>
 							<div style="font-size: 18pt; margin: 0; padding: 0; text-align: left;" class="fragment fade-in" data-fragment-index="2">Esferas pretas indicam os pontos testemunha $x^*_c$. Esferas vermelhas 
 								indicam os pontos testemunha $x^*_d$</div>							
@@ -210,7 +208,7 @@
 					<h2>CONTROLE</h2>
 					<h3>Função de tarefa</h3>
 					<div class="slidecontent">
-						<p>A tarefa corresponde a atingir uma pose alvo, portanto pode ser definida por</p>
+						<p>A tarefa corresponde a atingir uma pose alvo, portanto pode ser definida por (GONÇALVES, 2022a):</p>
 						<p>$$\begin{align*}
 							r(q) = \begin{pmatrix}p_{e}(q) - p_{tg}\\1-x_{tg}^Tx_{e}(q)\\1-y_{tg}^Ty_{e}(q)\\1-z_{tg}^Tz_{e}(q)\end{pmatrix}\in\mathbb{R}^6,
 							\end{align*}$$
@@ -436,7 +434,7 @@
 					<div class="slidecontent">
 						<!-- <div style="width:100%; text-align:center; vertical-align: top; display:table"> -->
 							<div class="simulation" >
-								<iframe scrolling="no" src="resources/sim_control.html" style="width:900px;height:650px"></iframe>
+								<iframe scrolling="no" data-src="resources/sim_control.html" style="width:900px;height:650px"></iframe>
 							</div>
 						<!-- </div> -->
 					</div>
@@ -445,11 +443,212 @@
 					<h2> Resultados</h2>
 					<h3>COM RESTRIÇÕES DE COLISÃO</h3>
 					<div class="slidecontent">
-						<figure>
-							<img src="resources/Result_tarefa.png">
+						<p style="text-align: center; margin: 0;">Função de tarefa ao longo do tempo de execução</p>
+						<figure class="figlegend">
+							<img src="resources/Result_tarefa.png" style="width: 75%; height:75%">
 						</figure>
 					</div>
 				</section>
+				<section data-auto-animate>
+					<h2> Resultados</h2>
+					<h3>COM RESTRIÇÕES DE COLISÃO</h3>
+					<div class="slidecontent">
+						<p style="text-align: center; margin: 0;">Distâncias obtidas pela estimativa de colisões externas e auto-colisão ao longo
+							do tempo de execução</p>
+						<figure class="figlegend">
+							<img src="resources/Result_distances.png" style="width: 75%; height:75%">
+						</figure>
+					</div>
+				</section>
+				<section data-auto-animate>
+					<h2> Resultados</h2>
+					<h3>COM RESTRIÇÕES DE COLISÃO</h3>
+					<div class="slidecontent">
+						<p style="text-align: center; margin: 0;">Configuração das juntas ao longo do tempo de execução</p>
+						<figure class="figlegend">
+							<img src="resources/Result_configs.png" style="width: 75%; height:75%">
+						</figure>
+					</div>
+				</section>
+				<section data-auto-animate>
+					<h2> Resultados</h2>
+					<h3>COM RESTRIÇÕES DE COLISÃO</h3>
+					<div class="slidecontent">
+						<p style="text-align: center; margin: 0;">Número de restrições, ou número de linhas de $W$, por iteração</p>
+						<figure class="figlegend">
+							<img src="resources/Result_matrixsize.png" style="width: 75%; height:75%">
+						</figure>
+					</div>
+				</section>
+				<section data-auto-animate>
+					<h2> Resultados</h2>
+					<h3>COM RESTRIÇÕES DE COLISÃO</h3>
+					<div class="slidecontent">
+						<p style="text-align: center; margin: 0;">Tempo gasto para a construção do problema de otimização e para a sua
+							respectiva solução em cada iteração</p>
+						<figure class="figlegend">
+							<img src="resources/Result_tempo.png" style="width: 75%; height:75%">
+						</figure>
+					</div>
+				</section>
+				<!------------------------------------------------------------
+				------------------------- SEM RESTRICAO ----------------------
+				 ------------------------------------------------------------>
+				<section data-auto-animate>
+					<h2> Resultados</h2>
+					<h3 style="margin-bottom:0">SEM RESTRIÇÕES DE COLISÃO</h3>
+					<div class="slidecontent">
+						<div class="simulation" >
+							<iframe scrolling="no" data-src="resources/sim_control_without_collision_restriction.html" style="width:900px;height:650px"></iframe>
+						</div>
+					</div>
+				</section>
+				<section data-auto-animate>
+					<h2> Resultados</h2>
+					<h3>SEM RESTRIÇÕES DE COLISÃO</h3>
+					<div class="slidecontent">
+						<p style="text-align: center; margin: 0;">Função de tarefa ao longo do tempo de execução</p>
+						<figure class="figlegend">
+							<img src="resources/Results_WITHOUTCOLLISION_tarefa.png" style="width: 75%; height:75%">
+						</figure>
+					</div>
+				</section>
+				<section data-auto-animate>
+					<h2> Resultados</h2>
+					<h3>SEM RESTRIÇÕES DE COLISÃO</h3>
+					<div class="slidecontent">
+						<p style="text-align: center; margin: 0;">Distâncias obtidas pela estimativa de colisões externas e auto-colisão ao longo
+							do tempo de execução</p>
+						<figure class="figlegend">
+							<img src="resources/Results_WITHOUTCOLLISION_distance.png" style="width: 75%; height:75%">
+						</figure>
+					</div>
+				</section>
+				<section data-auto-animate>
+					<h2> Resultados</h2>
+					<h3>SEM RESTRIÇÕES DE COLISÃO</h3>
+					<div class="slidecontent">
+						<div class="row-sidebysideIMG">
+							<div class="col-sidebysideIMG"><figure class="figlegend">
+								<div><img src="resources/Results_WITHOUTCOLLISION_primeiracolisao.png" width="90%" height="90%"></div>
+								<figcaption style="margin-left: 2.5%;">Primeira colisão</figcaption>
+							</figure></div>
+							<div class="col-sidebysideIMG"><figure class="figlegend">
+								<div><img src="resources/Results_WITHOUTCOLLISION_segundacolisao.png" width="90%" height="90%"></div>
+								<figcaption style="margin-left: 2.5%;">Segunda colisão</figcaption>
+							</figure></div>
+						</div>
+					</div>
+				</section>
+				<section data-auto-animate>
+					<h2> Resultados</h2>
+					<h3>SEM RESTRIÇÕES DE COLISÃO</h3>
+					<div class="slidecontent">
+						<p style="text-align: center; margin: 0;">Configuração das juntas ao longo do tempo de execução</p>
+						<figure class="figlegend">
+							<img src="resources/Results_WITHOUTCOLLISION_config.png" style="width: 75%; height:75%">
+						</figure>
+					</div>
+				</section>
+				<section data-auto-animate>
+					<h2>Resultados</h2>
+					<h3>SEM RESTRIÇÕES DE COLISÃO</h3>
+					<div class="slidecontent">
+						<p style="text-align: center; margin: 0;">Tempo gasto para a construção do problema de otimização e para a sua
+							respectiva solução em cada iteração</p>
+						<figure class="figlegend">
+							<img src="resources/Results_WITHOUTCOLLISION_Tempo.png" style="width: 75%; height:75%">
+						</figure>
+					</div>
+				</section>
+				<!------------------------------------------------------------
+				--------------------- TRABALHOS FUTUROS ----------------------
+				 ------------------------------------------------------------>
+				<section>
+					<h1>TRABALHOS FUTUROS</h1>
+				</section>
+				<section data-auto-animate>
+					<h2>TRABALHOS FUTUROS</h2>
+					<div class="slidecontent">
+						<div class="leftlist" style="justify-content: left; text-align:center">
+						<ul>
+							<li>Estudar a possibilidade de se obter uma nova forma de representação para as restrições</li>
+							<li>Obter formas menos menos custosas de se estimar distâncias</li>
+							<li>Pensar em formas reativas de se evitar mínimos locais</li>
+						</ul>
+						</div>
+					</div>
+				</section>
+				<!------------------------------------------------------------
+				-------------------------- CONCLUSOES ------------------------
+				 ------------------------------------------------------------>
+				<section>
+					<h1>CONCLUSÕES</h1>
+				</section>
+				<section data-auto-animate>
+					<h2>CONCLUSÕES</h2>
+					<div class="slidecontent">
+						<div class="leftlist" style="justify-content: left; text-align:center; font-size: 30pt;">
+							<ul>
+								<li>Parâmetros de Denavit-Hartenberg obtidos se mostraram satisfatórios</li>
+								<li>A composição de primitivas de colisão escolhida também se mostrou eficaz</li>
+								<li>A hierarquia de primitivas se mostrou importante para a redução de custo computacional</li>
+								<li>Uso de programação quadrática convexa é proveitoso para o controle com restrições de desigualdade</li>
+								<li>Processo de estimar todas as distâncias $\Psi_{C_iD_j}$ lento</li>
+								<li>Estratégia empregada tem possibilidade de convergir a mínimos locais</li>
+							</ul>
+						</div>
+					</div>
+				</section>
+				<!------------------------------------------------------------
+				------------------------- REFERENCIAS ------------------------
+				 ------------------------------------------------------------>
+				 <section>
+					<h1>referências</h1>
+				</section>
+				<section data-auto-animate>
+					<h2>referências</h2>
+					<div class="slidecontent">
+						<div class="leftlist" style="justify-content: left; text-align:center;">
+							<ul style="list-style-type: none; font-size: 16pt;">
+								<li style="margin: 10px 0;">BOYD, S.; DATTORRO, J. <em>Alternating Projections.</em>. 2003. Disponível em:
+									&lt;<a href="https://web.stanford.edu/class/ee392o/alt_proj.pdf" target="_blank">: https://web.stanford.edu/class/ee392o/alt_proj.pdf</a>&gt;. 
+								</li>
+								<li style="margin: 10px 0;">BRADSHAW; GARETH. <em>Bounding volume hierarchies for level-of-detail collision
+									handling</em>. 176 p. Tese (Doutorado) — Trinity College, 2002. Disponível em:
+									&lt;<a href="http://www.tara.tcd.ie/handle/2262/86786" target="_blank">http://www.tara.tcd.ie/handle/2262/86786</a>&gt;. 
+								</li>
+								<li style="margin: 10px 0;">CHENEY, W.; GOLDSTEIN, A. A. Proximity maps for convex sets. <em>Proceedings of
+									the American Mathematical Society</em>. American Mathematical Society (AMS), v. 10,
+									n. 3, p. 448-450, 1959. ISSN 0002-9939. Disponível em: 
+									&lt;<a href="https://www.ams.org/proc/
+									1959-010-03/S0002-9939-1959-0105008-8/" target="_blank">https://www.ams.org/proc/
+										1959-010-03/S0002-9939-1959-0105008-8/</a>&gt;. 
+								</li>
+								<li style="margin: 10px 0;">DINAS, S.; BAÑÓN, J. M. Revisión de literatura de jerarquía volúmenes acotantes
+									enfocados en detección de colisiones. <em>INGENIERÍA Y COMPETITIVIDAD</em>. v. 17, n. 1,
+									p. 49-62, jun. 2015. Disponível em: 
+									&lt;<a href="https://revistaingenieria.univalle.edu.co/index.php/ingenieria_y_competitividad/article/view/2200" target="_blank">https://revistaingenieria.univalle.edu.co/index.php/ingenieria_y_competitividad/article/view/2200</a>&gt;. 
+								</li>
+								<li style="margin: 10px 0;">ESCALANTE, R.; RAYDAN, M. <em>Alternating Projection Methods</em>. Philadelphia,
+									PA: Society for Industrial and Applied Mathematics, 2011. Disponível em:
+									&lt;<a href="https://epubs.siam.org/doi/abs/10.1137/9781611971941" target="_blank">: https://epubs.siam.org/doi/abs/10.1137/9781611971941</a>&gt;. 
+								</li>
+								<li style="margin: 10px 0;">KANOUN, O.; LAMIRAUX, F.; WIEBER, P.-B. Kinematic control of redundant
+									manipulators: Generalizing the task-priority framework to inequality task. <em>IEEE Transactions on Robotics</em>. 
+									v. 27, n. 4, p. 785-792, aug 2011. ISSN 15523098. 
+								</li>
+								<li style="margin: 10px 0;">GONÇALVES, V. M. <em>Manipuladores Robóticos</em>. [S.l.]: GitHub, 2022. Disponível em:
+									&lt;<a href="https://viniciusmgn.github.io/aulas_manipuladores/" target="_blank">: https://viniciusmgn.github.io/aulas_manipuladores/</a>&gt;. 
+								</li>
+								<li style="margin: 10px 0;">GONÇALVES, V. M. <em>UAIBot</em>. [S.l.]: GitHub, 2022. Disponível em:
+									&lt;<a href="https://github.com/viniciusmgn/uaibot_vinicius" target="_blank">: https://github.com/viniciusmgn/uaibot_vinicius</a>&gt;. 
+								</li>
+							</ul>
+						</div>
+					</div>
+				</section>
+			</div>
 			</div>
 		</div>
 
