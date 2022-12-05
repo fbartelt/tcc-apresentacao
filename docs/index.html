@@ -1,129 +1,249 @@
 <!doctype html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>Modelagem e Controle de um Robô para Cirurgias</title>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<link rel="stylesheet" href="dist/reset.css">
-		<link rel="stylesheet" href="dist/reveal.css">
-		<link rel="stylesheet" href="dist/theme/black_modified.css">
+	<title>Modelagem e Controle de um Robô para Cirurgias</title>
 
-		<!-- Theme used for syntax highlighted code -->
-		<link rel="stylesheet" href="plugin/highlight/monokai.css">
-	</head>
-	<body>
-		<div class="reveal">
-			<div class="slides">
-				<section>
-					<h6 style="font-size: 10pt">Apresentação de Monografia<br>Engenharia Elétrica - Universidade Federal de Minas Gerais</h6>
-					<br><br><br>
-					<h1>Modelagem e Controle de um Robô para Cirurgias</h1>
-					<br><br><br>
-					<div class="cabecalho">
-						<table>
-							<tr>
-							  <td>Aluno:</td>
-							  <td>Felipe Bartelt de Assis Pessoa</td>
-							</tr>
-							<tr>
-							  <td>Prof. Orientador:</td>
-							  <td>Vinicius Mariano Gonçalves</td>
-							</tr>
-						  </table> 
-					</div>
-				</section>
-				<section>
-					<h1>da Vinci Si</h1>
-				</section>
-				<!------------------------------------------------------------
-				-------------------- DETECCAO DE COLISOES --------------------
-				 ------------------------------------------------------------>
-				<section>
-					<h1>Detecção de colisões</h1>
-				</section>
-				<section>
-					<h2>Detecção de colisões</h2>
-					<div class="slidecontent">
+	<link rel="stylesheet" href="dist/reset.css">
+	<link rel="stylesheet" href="dist/reveal.css">
+	<link rel="stylesheet" href="dist/theme/black_modified.css">
+
+	<!-- Theme used for syntax highlighted code -->
+	<link rel="stylesheet" href="plugin/highlight/monokai.css">
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section>
+				<h6 style="font-size: 10pt">Apresentação de Monografia<br>Engenharia Elétrica - Universidade Federal de
+					Minas Gerais</h6>
+				<br><br><br>
+				<h1>Modelagem e Controle de um Robô para Cirurgias</h1>
+				<br><br><br>
+				<div class="cabecalho">
+					<table>
+						<tr>
+							<td>Aluno:</td>
+							<td>Felipe Bartelt de Assis Pessoa</td>
+						</tr>
+						<tr>
+							<td>Prof. Orientador:</td>
+							<td>Vinicius Mariano Gonçalves</td>
+						</tr>
+					</table>
+				</div>
+			</section>
+			<!------------------------------------------------------------
+			------------------------- INTRODUCAO--------------------------
+			------------------------------------------------------------>
+			<section>
+				<h1>Robótica Cirúrgica</h1>
+			</section>
+			<section>
+				<h2>Robótica Cirúrgica</h2>
+				<h3></h3>
+				<div class="slidecontent">
 					<div class="leftlist">
-							<div class="leftlistlist"><ul>
+						<div>
+							<ul>
+								<li>Seres humanos são suscetíveis a variáveis não controláveis</li>
+								<li>Sistemas <b>não</b> autônomos</li>
+								<li>Robôs telemanipulados são os mais comuns</li>
+								<li>Sistema mais comum do mercado: da Vinci</li>
+							</ul>
+						</div>
+						<div style="width:100%">
+							<figure class="figlegend">
+								<img src="resources/41940542911_32e44df61f_k.webp" width="80%" height="80%">
+								<figcaption style="word-break: break-all; margin-left: 6%;">Fonte: <a
+										href="https://www.smithsonianmag.com/innovation/the-past-present-and-future-of-robotic-surgery-180980763"
+										target="_blank"
+										style="word-break: break-word;">https://www.smithsonianmag.com/innovation/the<br>-past-present-and-future-of-robotic-surgery-180980763/</a>
+								</figcaption>
+							</figure>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section>
+				<h2>Robótica Cirúrgica</h2>
+				<h3>Da vinci</h3>
+				<div class="slidecontent">
+					<div class="leftlist">
+						<div style="font-size:26pt">
+							<ul>
+								<li>Autorização para realizar cirurgias no Estados Unidos e Europa</li>
+								<li>Há mais de 4400 sistemas da Vinci instalados em mais de 60 países</li>
+								<li>Mais de 5 milhões de procedimentos realizados por cirurgiões</li>
+								<li>Torna a visualização e manipulação de tecidos o mais transparente e natural
+									possível (DESAI et al., 2017).</li>
+							</ul>
+						</div>
+						<div>
+							<figure class="figlegend">
+								<img src="resources/davinciSiHD1-e1565108352364.png" width="80%" height="80%">
+								<figcaption style="word-break: break-all; margin-left: 6%;">Fonte: <a
+										href="https://www.auinstitute.com/da-vinci-robotic-prostatectomy/"
+										target="_blank"
+										style="word-break: break-word;">https://www.auinstitute.com/da-vinci<br>-robotic-prostatectomy/</a>
+								</figcaption>
+							</figure>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section>
+				<h2>Robótica Cirúrgica</h2>
+				<h3>Da vinci si</h3>
+				<div class="slidecontent">
+					<div class="leftlist">
+						<div style="width: 100%; font-size: 24pt;">
+							<ul>
+								<li>Consiste em três partes, o console do cirurgião, o manipulador do lado do paciente e um sistema de imagem</li>
+								
+							</ul>
+						</div>
+						<div style="width: 100%;">
+							<figure class="figlegend">
+								<img src="resources/davinciSiHD1-e1565108352364.png" width="80%" height="80%">
+								<figcaption style="word-break: break-all; margin-left: 6%;">Fonte: <a
+										href="https://www.auinstitute.com/da-vinci-robotic-prostatectomy/"
+										target="_blank"
+										style="word-break: break-word;">https://www.auinstitute.com/da-vinci<br>-robotic-prostatectomy/</a>
+								</figcaption>
+							</figure>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!------------------------------------------------------------
+			-------------------- DETECCAO DE COLISOES --------------------
+			------------------------------------------------------------>
+			<section>
+				<h1>Detecção de colisões</h1>
+			</section>
+			<section>
+				<h2>Detecção de colisões</h2>
+				<div class="slidecontent">
+					<div class="leftlist">
+						<div class="leftlistlist">
+							<ul>
 								<li class="fragment semi-fade-out" data-fragment-index="1">Alto custo computacional</li>
-								<li class="fragment fade-in-then-semi-out" data-fragment-index="1">Primitivas de colisão</li>
-								<li class="fragment fade-in-then-semi-out" data-fragment-index="2">Hierarquia de primitivas</li>
-								<li  class="fragment fade-in" data-fragment-index="3">Estimativa de distâncias</li>
-							</ul></div>
-							<div class="r-stack">
-								<div><figure class="figlegend">
-									<img class="fragment fade-in-then-out" data-fragment-index="1" src="resources/primitives.png" width="65%" height="65%">
-									<figcaption class="fragment fade-in-then-out" data-fragment-index="1" >(DINAS; BAÑÓN, 2015)</figcaption>
-								</figure></div>
-								<div><figure class="figlegend">
-									<div><img class="fragment fade-in-then-out" data-fragment-index="2" src="resources/volumehierarchy.png" width="65%" height="65%"></div>
-									<figcaption class="fragment fade-in-then-out" data-fragment-index="2" >(BRADSHAW; GARETH, 2002)</figcaption>
-								</figure></div>
+								<li class="fragment fade-in-then-semi-out" data-fragment-index="1">Primitivas de colisão
+								</li>
+								<li class="fragment fade-in-then-semi-out" data-fragment-index="2">Hierarquia de
+									primitivas</li>
+								<li class="fragment fade-in" data-fragment-index="3">Estimativa de distâncias</li>
+							</ul>
+						</div>
+						<div class="r-stack">
+							<div>
+								<figure class="figlegend">
+									<img class="fragment fade-in-then-out" data-fragment-index="1"
+										src="resources/primitives.png" width="65%" height="65%">
+									<figcaption class="fragment fade-in-then-out" data-fragment-index="1">(DINAS; BAÑÓN,
+										2015)</figcaption>
+								</figure>
 							</div>
+							<div>
+								<figure class="figlegend">
+									<div><img class="fragment fade-in-then-out" data-fragment-index="2"
+											src="resources/volumehierarchy.png" width="65%" height="65%"></div>
+									<figcaption class="fragment fade-in-then-out" data-fragment-index="2">(BRADSHAW;
+										GARETH, 2002)</figcaption>
+								</figure>
+							</div>
+						</div>
 					</div>
-					</div>
-				</section>
-				<!------------------------------------------------------------
-				-------------------- PROJECOES ALTERNADAS --------------------
-				 ------------------------------------------------------------>
-				<section>
-					<h2> Método de Projeções Alternadas de Von Neumann</h2>
-					<div class="slidecontent">
+				</div>
+			</section>
+			<!------------------------------------------------------------
+			-------------------- PROJECOES ALTERNADAS --------------------
+			------------------------------------------------------------>
+			<section>
+				<h2> Método de Projeções Alternadas de Von Neumann</h2>
+				<div class="slidecontent">
 					<div class="r-stack">
-						<div class="fragment fade-out" data-fragment-index="1" >
-							<p style="font-size: 20pt;"> Sejam $C, D$ subespaços convexos do $\mathbb{R}^n$, $P_C(x)$ a projeção ortogonal de 
-								um ponto $x$ em $C$, $P_D(x)$ a projeção ortogonal de um ponto $x$ em $D$, então para cada $x \in\mathbb{R}^n$ vale (ESCALANTE; RAYDAN, 2011):</p>
+						<div class="fragment fade-out" data-fragment-index="1">
+							<p style="font-size: 20pt;"> Sejam $C, D$ subespaços convexos do $\mathbb{R}^n$, $P_C(x)$ a
+								projeção ortogonal de
+								um ponto $x$ em $C$, $P_D(x)$ a projeção ortogonal de um ponto $x$ em $D$, então para
+								cada $x \in\mathbb{R}^n$ vale (ESCALANTE; RAYDAN, 2011):</p>
 							<div style="font-size: 22pt;">
 								\[
 								\lim_{n\to\infty} (P_DP_C)^nx = P_{C\cap D}(x)
 								\]
 							</div>
-							<p style="font-size: 20pt;">Se $C\cap D=\varnothing$ o método converge a pontos testemunha $x_c^*, x_d^*$,
-								que correspondem ao par de pontos que minimiza a distância entre $C$ e $D$ (CHENEY; GOLDSTEIN, 1959).</p>
+							<p style="font-size: 20pt;">Se $C\cap D=\varnothing$ o método converge a pontos testemunha
+								$x_c^*, x_d^*$,
+								que correspondem ao par de pontos que minimiza a distância entre $C$ e $D$ (CHENEY;
+								GOLDSTEIN, 1959).</p>
 						</div>
 						<div class="row-sidebysideIMG">
-							<div class="col-sidebysideIMG"><figure class="figlegend">
-								<div><img class="fragment fade-in-then-out" data-fragment-index="1" src="resources/VonNeumann_intersect.png" width="76%" height="76%"></div>
-								<figcaption class="fragment fade-in-then-out" data-fragment-index="1" style="margin-left: 6%;">Com interseção (colisão) (BOYD;<br>DATTORRO, 2003)</figcaption>
-							</figure></div>
-							<div class="col-sidebysideIMG"><figure class="figlegend">
-								<div><img class="fragment fade-in-then-out" data-fragment-index="1" src="resources/VonNeumann_NOTintersect.png" width="100%" height="100%"></div>
-								<figcaption class="fragment fade-in-then-out" data-fragment-index="1" style="margin-left: 1.5%;">Sem interseção (colisão) (BOYD; DATTORRO, 2003)</figcaption>
-							</figure></div>
+							<div class="col-sidebysideIMG">
+								<figure class="figlegend">
+									<div><img class="fragment fade-in-then-out" data-fragment-index="1"
+											src="resources/VonNeumann_intersect.png" width="76%" height="76%"></div>
+									<figcaption class="fragment fade-in-then-out" data-fragment-index="1"
+										style="margin-left: 6%;">Com interseção (colisão) (BOYD;<br>DATTORRO, 2003)
+									</figcaption>
+								</figure>
+							</div>
+							<div class="col-sidebysideIMG">
+								<figure class="figlegend">
+									<div><img class="fragment fade-in-then-out" data-fragment-index="1"
+											src="resources/VonNeumann_NOTintersect.png" width="100%" height="100%">
+									</div>
+									<figcaption class="fragment fade-in-then-out" data-fragment-index="1"
+										style="margin-left: 1.5%;">Sem interseção (colisão) (BOYD; DATTORRO, 2003)
+									</figcaption>
+								</figure>
+							</div>
 						</div>
 						<div>
 							<figure class="figlegend">
-								<div><img class="fragment fade-in" data-fragment-index="2" style="margin-top:10px" src="resources/witnessPointsSImulados.png" width="60%" height="60%"></div>
+								<div><img class="fragment fade-in" data-fragment-index="2" style="margin-top:10px"
+										src="resources/witnessPointsSImulados.png" width="60%" height="60%"></div>
 							</figure>
-							<div style="font-size: 18pt; margin: 0; padding: 0; text-align: left;" class="fragment fade-in" data-fragment-index="2">Esferas pretas indicam os pontos testemunha $x^*_c$. Esferas vermelhas 
-								indicam os pontos testemunha $x^*_d$</div>							
+							<div style="font-size: 18pt; margin: 0; padding: 0; text-align: left;"
+								class="fragment fade-in" data-fragment-index="2">Esferas pretas indicam os pontos
+								testemunha $x^*_c$. Esferas vermelhas
+								indicam os pontos testemunha $x^*_d$</div>
 						</div>
 					</div>
-					</div>
-				</section>
-				<!------------------------------------------------------------
-				-------------------- FUNCAO DE DISTANCIA ---------------------
-				 ------------------------------------------------------------>
-				<section>
-					<h5 style="text-align: left; vertical-align:top;"> Função de distância</h5>
-					<div  class="slidecontent">
-					<p style="font-size: 20pt; text-align: left;"> Seja $C$ o conjunto de pontos na superfície de um elo do robô e $D$ o conjunto de pontos na superfície de um obstáculo, 
-					pode-se definir a função de distância $\Psi_{CD}(q)$ e sua jacobiana $J_{\Psi}\equiv J_{\Psi_{CD}}(q):$</p>
-					
+				</div>
+			</section>
+			<!------------------------------------------------------------
+			-------------------- FUNCAO DE DISTANCIA ---------------------
+			------------------------------------------------------------>
+			<section>
+				<h5 style="text-align: left; vertical-align:top;"> Função de distância</h5>
+				<div class="slidecontent">
+					<p style="font-size: 20pt; text-align: left;"> Seja $C$ o conjunto de pontos na superfície de um elo
+						do robô e $D$ o conjunto de pontos na superfície de um obstáculo,
+						pode-se definir a função de distância $\Psi_{CD}(q)$ e sua jacobiana $J_{\Psi}\equiv
+						J_{\Psi_{CD}}(q):$</p>
+
 					<div style="font-size: 22pt;" class="r-stack">
-						<div class="fragment fade-out" data-fragment-index="1" style="position:relative; margin-left: auto; margin-right: auto; left: 0; right: 0;"> 
+						<div class="fragment fade-out" data-fragment-index="1"
+							style="position:relative; margin-left: auto; margin-right: auto; left: 0; right: 0;">
 							\[\begin{align*}
 							&\Psi_{CD}(q) = \|x_c^*(q) - x_d^*(q)\|\\
-							&\implies \nabla \Psi_{CD}(q) = J_{\Psi} = \begin{pmatrix} \frac{\partial \Psi_{CD}(q)}{\partial q_1} \\ \frac{\partial \Psi_{CD}(q)}{\partial q_2} \\ \vdots \\ \frac{\partial \Psi_{CD}(q)}{\partial q_n}\end{pmatrix}
+							&\implies \nabla \Psi_{CD}(q) = J_{\Psi} = \begin{pmatrix} \frac{\partial
+							\Psi_{CD}(q)}{\partial q_1} \\ \frac{\partial \Psi_{CD}(q)}{\partial q_2} \\ \vdots \\
+							\frac{\partial \Psi_{CD}(q)}{\partial q_n}\end{pmatrix}
 							\end{align*}\]
 						</div>
-						<div class="fragment fade-in" data-fragment-index="1" style="position:absolute; text-align:center; margin-left: auto; margin-right: auto; left: 0; right: 0;">
+						<div class="fragment fade-in" data-fragment-index="1"
+							style="position:absolute; text-align:center; margin-left: auto; margin-right: auto; left: 0; right: 0;">
 							\[\begin{align*}
 							&\Psi_{CD}(q) = \|x_c^*(q) - x_d^*(q)\|\\
-							&J_\Psi= \left(J_{{x_c}^*} - J_{{x_d}^*}\right)^T\cdot\frac{x_c^*(q) - x_d^*(q)}{\Psi_{CD}(q)},
+							&J_\Psi= \left(J_{{x_c}^*} - J_{{x_d}^*}\right)^T\cdot\frac{x_c^*(q) -
+							x_d^*(q)}{\Psi_{CD}(q)},
 							\end{align*}\]
 							<p style="text-align:left; margin-left: 300px;">onde</p>
 							\[\begin{align*}
@@ -132,546 +252,621 @@
 							<p style="text-align:left; margin-left: 300px;">O resultado é análogo para $J_{x_d^*}$</p>
 						</div>
 					</div>
-					</div>
-				</section>
-				<!------------------------------------------------------------
-				------------------------- IMPLEMENTACAO ----------------------
-				 ------------------------------------------------------------>
-				<section>
-					<h1>IMPLEMENTAÇÃO</h1>
-				</section>
-				<section data-auto-animate>
-					<h2>IMPLEMENTAÇÃO</h2>
-					<h3>Parâmetros de Denavit-Hartenberg</h3>
-					<div class="slidecontent">
-						<div class="leftlist">
-							<div class="leftlistlist"><ul>
+				</div>
+			</section>
+			<!------------------------------------------------------------
+			------------------------- IMPLEMENTACAO ----------------------
+			------------------------------------------------------------>
+			<section>
+				<h1>IMPLEMENTAÇÃO</h1>
+			</section>
+			<section data-auto-animate>
+				<h2>IMPLEMENTAÇÃO</h2>
+				<h3>Parâmetros de Denavit-Hartenberg</h3>
+				<div class="slidecontent">
+					<div class="leftlist">
+						<div class="leftlistlist">
+							<ul>
 								<li>Limitada à visualização no simulador</li>
 								<li>Suscetível a erros de observação</li>
 								<li>Dependente da fidelidade do modelo 3D</li>
 								<li>Exige muito tempo empregado</li>
-							</ul></div>
-							<div class="r-stack">
-								<div><figure class="figlegend">
-									<img class="fragment fade-out" data-fragment-index="1" src="resources/davinci_frames4.png" width="80%" height="80%">
-								</figure></div>
-								<div><figure class="figlegend">
-									<div><img class="fragment fade-in" data-fragment-index="1" src="resources/davinci_frames1.png" width="90%" height="90%"></div>
-								</figure></div>
+							</ul>
+						</div>
+						<div class="r-stack">
+							<div>
+								<figure class="figlegend">
+									<img class="fragment fade-out" data-fragment-index="1"
+										src="resources/davinci_frames4.png" width="80%" height="80%">
+								</figure>
+							</div>
+							<div>
+								<figure class="figlegend">
+									<div><img class="fragment fade-in" data-fragment-index="1"
+											src="resources/davinci_frames1.png" width="90%" height="90%"></div>
+								</figure>
 							</div>
 						</div>
 					</div>
-				</section>
-				<section data-auto-animate>
-					<h2>IMPLEMENTAÇÃO</h2>
-					<h3>Primitivas de colisão</h3>
-					<div class="slidecontent">
-						<div class="leftlist">
-							<div class="leftlistlist"><ul>
+				</div>
+			</section>
+			<section data-auto-animate>
+				<h2>IMPLEMENTAÇÃO</h2>
+				<h3>Primitivas de colisão</h3>
+				<div class="slidecontent">
+					<div class="leftlist">
+						<div class="leftlistlist">
+							<ul>
 								<li>Escolha subjetiva de geometrias</li>
 								<li>Escolha de retesamento</li>
 								<li>Hierarquia intrínseca ao simulador</li>
 								<li>Exige muito tempo empregado</li>
-							</ul></div>
-							<div class="r-stack">
-								<div><figure class="figlegend">
-									<img class="fragment fade-out" data-fragment-index="1" src="resources/Modelos_colisao_frente.png" width="90%" height="90%">
-								</figure></div>
-								<div><figure class="figlegend">
-									<div><img class="fragment fade-in" data-fragment-index="1" src="resources/Modelos_colisao_atras.png" width="90%" height="90%"></div>
-								</figure></div>
+							</ul>
+						</div>
+						<div class="r-stack">
+							<div>
+								<figure class="figlegend">
+									<img class="fragment fade-out" data-fragment-index="1"
+										src="resources/Modelos_colisao_frente.png" width="90%" height="90%">
+								</figure>
+							</div>
+							<div>
+								<figure class="figlegend">
+									<div><img class="fragment fade-in" data-fragment-index="1"
+											src="resources/Modelos_colisao_atras.png" width="90%" height="90%"></div>
+								</figure>
 							</div>
 						</div>
 					</div>
-				</section>
-				<!------------------------------------------------------------
-				-------------------------- CONTROLE --------------------------
-				 ------------------------------------------------------------>
-				 <section>
-					<h1>CONTROLE</h1>
-				 </section>
-				 <section data-auto-animate>
-					<h2>CONTROLE</h2>
-					<h3>Programação quadrática convexa</h3>
-					<div class="slidecontent">
-						<p>$$\begin{align*}
-							\min_{\dot{q}}{}&{\| J_{r}\dot{q} + K_{r}r\|_2^2}\\
-							\text{sujeito a}
-									&\ W\dot{q}\leq w ,
-							\end{align*}$$</p>
-							<p>onde $q\equiv q(t)\in \mathbb{R}^n$ é o vetor de configurações do robô, $r\equiv r(q):\mathbb{R}^n\mapsto\mathbb{R}^m$ é uma função de tarefa, 
-								$J_r\equiv J_r(q)=\frac{\partial r(q)}{\partial q}\in \mathbb{R}^{m\times n}$ é a matriz jacobiana de tarefa e $K_r \in (0, \infty)$ é um ganho. 
-								$W\equiv W(q)\in \mathbb{R}^{\ell \times n}$ e $w\equiv w(q)\in \mathbb{R}^{\ell}$ definem as restrições de desigualdade.</p>
-					</div>
-				</section>
-				<section data-auto-animate>
-					<h2>CONTROLE</h2>
-					<h3>Função de tarefa</h3>
-					<div class="slidecontent">
-						<p>A tarefa corresponde a atingir uma pose alvo, portanto pode ser definida por (GONÇALVES, 2022a):</p>
-						<p>$$\begin{align*}
-							r(q) = \begin{pmatrix}p_{e}(q) - p_{tg}\\1-x_{tg}^Tx_{e}(q)\\1-y_{tg}^Ty_{e}(q)\\1-z_{tg}^Tz_{e}(q)\end{pmatrix}\in\mathbb{R}^6,
-							\end{align*}$$
-						</p>
-						<p>onde $p_{e}(q) \in \mathbb{R}^{3}$ é a posição do centro do referencial do efetuador, $p_{tg}\in \mathbb{R}^{3}$ é a posição do centro do alvo, 
-							$x_e(q), y_e(q), z_e(q)\in\mathbb{R}^3$ são os eixos $x,y, z$ do referencial do efetuador e $x_{tg}, y_{tg}, z_{tg}\in\mathbb{R}^3$ são os eixos 
-							$x,y, z$ do alvo. Todos os elementos são medidos no referencial do mundo.
-						</p>
-					</div>
-				</section>
-				<section data-auto-animate>
-					<h2>CONTROLE</h2>
-					<h3>Função de tarefa</h3>
-					<div class="slidecontent">
-						<p>$$\begin{align*}
-							r(q) = \begin{pmatrix}p_{e}(q) - p_{tg}\\1-x_{tg}^Tx_{e}(q)\\1-y_{tg}^Ty_{e}(q)\\1-z_{tg}^Tz_{e}(q)\end{pmatrix}\in\mathbb{R}^6,
-							\end{align*}$$
-						</p>
-						<p>$$\begin{align*}
-								J_r(q) = \frac{\partial r(q)}{\partial q}=\begin{bmatrix}
-								J_p(q) \\ x_{tg}^TS\left(x_e\left(q\right)\right)J_\omega(q) \\ y_{tg}^TS(y_e(q))J_\omega(q) \\ z_{tg}^TS(z_e(q))J_\omega(q)
-								\end{bmatrix} \in\mathbb{R}^{6\times n},
-								\end{align*}$$</p>
-						<p> onde $J_p(q)\in\mathbb{R}^{3\times n}$ é a jacobiana de posição do efetuador, que são as três primeiras linhas 
-								de sua jacobiana geométrica $J_{geo}\in\mathbb{R}^{6\times n}$, $J_\omega(q)\in\mathbb{R}^{3\times n}$ é a jacobiana de orientação do efetuador, que são as 
-								três últimas linhas de $J_{geo}$. $S$ é um operador que mapeia um vetor em sua respectiva matriz antissimétrica</p>
-							
-					</div>
-				</section>
-				<!------------------------------------------------------------
-				-------------------------- RESTRICOES ------------------------
-				 ------------------------------------------------------------>
-				<section data-auto-animate>
-					<h2>CONTROLE</h2>
-					<h3>Restrições de colisão externa</h3>
-					<div class="slidecontent">
-								<p> Pode ser definida pela seguinte inequação diferencial, adotando-se uma distância de segurança $d_\text{safe}$ e um
-									coeficiente de amortecimento $\eta$ (KANOUN; LAMIRAUX; WIEBER, 2011).
-								</p>
-								<p>$$\begin{align*}
-									\frac{d}{dt} \Psi_{C_iD_j} &\ge -\eta \left(\Psi_{C_iD_j}-d_\text{safe}\right)\\
-									\implies J_{\Psi_{C_iD_j}}^T\dot{q} &\ge -\eta \left(\Psi_{C_iD_j}-d_\text{safe}\right)
-								\end{align*}$$</p>
-					</div>
-				</section>
-				<section data-auto-animate>
-					<h2>CONTROLE</h2>
-					<h3>Restrições de colisão externa</h3>
-					<div class="slidecontent">
-								<p style="font-size: 20pt;"> Dado</p>
-								<p style="font-size:16pt ;">
-								$$ \begin{align*}
-								b= \begin{bmatrix} \Psi_{C_{1}D_{1}} \\ \Psi_{C_{2}D_{1}} \\ \vdots \\ \Psi_{C_{p}D_{1}} \\ \Psi_{C_{1}D_{2}} \\ \vdots \\ \Psi_{C_{p}D_{l}}
-								\end{bmatrix} \in \mathbb{R}^{p\cdot l},\quad
-								A= \begin{bmatrix} J_{\Psi_{C_{1}D_{1}}}^{T} \\ J_{\Psi_{C_{2}D_{1}}}^{T} \\ \vdots \\ J_{\Psi_{C_{p}D_{1}}}^{T} \\ J_{\Psi_{C_{1}D_{2}}}^{T} \\ 
-								\vdots \\ J_{\Psi_{C_{p}D_{l}}}^{T} \end{bmatrix} \in \mathbb{R}^{(p\cdot l)\times n}
-								\end{align*} $$
-								</p>
-								<p>A restrição é expressa por $$-A \dot{q} \leq \eta \left(b - d_\text{safe}\right) $$</p>
-					</div>
-				</section>
-				<section data-auto-animate>
-					<h2>CONTROLE</h2>
-					<h3>Restrições de colisão externa</h3>
-					<div class="slidecontent">
-						<p> O custo computacional para se calcular todas as distâncias e jacobianas é caro, portanto basta tomar as 
-							$k$ distâncias mais críticas (isso é feito internamente pelo simulador via hierarquia de primitivas).</p><p>Dessa forma, 
-							$\bar{b}\in\mathbb{R}^k$ que contém apenas as linhas de $b$ que apresentam as $k$ menores distâncias $\Psi_{C_iD_j}$. Suas respectivas jacobianas são 
-							armazenadas em uma matriz $\bar{A}\in\mathbb{R}^{k\times n}$. As restrições se tornam
-						</p>
-						<p>$$-\bar{A} \dot{q} \leq \eta \left(\bar{b} - d_\text{safe}\right)$$</p>
-					</div>
-				</section>
-				<section data-auto-animate>
-					<h2>CONTROLE</h2>
-					<h3>Restrições de colisão interna</h3>
-					<div class="slidecontent">
-						<p>
-							Análoga às restrições de colisão externa, mas cada $D_j$ representa um outro elo não subsequente do robô. As restrições podem ser
-							definidas por
-						</p>
-						<p>$$-\bar{A}_\text{auto} \dot{q} \leq \eta_\text{auto} \left(\bar{b}_\text{auto} - d_\text{safe}\right),$$</p>
-						<p>onde, devido a hierarquia de primitivas, $\bar{A}_\text{auto}\in\mathbb{R}^{g\times n}, \bar{b}_\text{auto}\in\mathbb{R}^{g}$.</p>
-					</div>
-				</section>
-				<section data-auto-animate>
-					<h2>CONTROLE</h2>
-					<h3>Restrições de limites de juntas</h3>
-					<div class="slidecontent">
-						<p>Basta impor que a velocidade de junta $\dot{q}$ satisfaça</p>
-						<p>
-							$$ \begin{align*}&\xi\left(q_{\text{min}} - q\right) \leq I\dot{q} \leq \xi\left(q_{\text{max}} - q\right)\\ 
-							&\implies \begin{cases} I\dot{q} \leq \xi\left(q_{\text{max}} - q\right)\\
-							 - I\dot{q} \leq -\xi\left(q_{\text{min}} - q\right)\end{cases},\end{align*}$$
-						</p>
-						<p>onde $q_\text{min}, q_\text{max}\in\mathbb{R}^n$ são, respectivamente, vetores que contém os valores mínimos e máximos de cada junta, 
-							$\xi$ um fator de amortecimento e $I$ a matriz identidade de tamanho $n \times n$.</p>
-					</div>
-				</section>
-				<section data-auto-animate>
-					<h2>CONTROLE</h2>
-					<h3>Restrições de juntas passivas</h3>
-					<div class="slidecontent">
-						<p>Basta garantir que a configuração das juntas $q_7$ e $q_8$ mantenham uma diferença constante com a configuração $q_6$, sendo o manipulador 
-							representado pela configuração $(q_1, q_2, \dots, q_9)$, ou seja</p>
-						<p>
-							$$ \begin{align*}
-							\dot{q}_7 - \dot{q}_6 &= -\sigma\left(q_7 - q_6 - \delta_{76}\right) \\
-							\dot{q}_8 - \dot{q}_6 &= -\sigma\left(q_8 - q_6 - \delta_{86}\right) ,
+				</div>
+			</section>
+			<!------------------------------------------------------------
+			-------------------------- CONTROLE --------------------------
+			------------------------------------------------------------>
+			<section>
+				<h1>CONTROLE</h1>
+			</section>
+			<section data-auto-animate>
+				<h2>CONTROLE</h2>
+				<h3>Programação quadrática convexa</h3>
+				<div class="slidecontent">
+					<p>$$\begin{align*}
+						\min_{\dot{q}}{}&{\| J_{r}\dot{q} + K_{r}r\|_2^2}\\
+						\text{sujeito a}
+						&\ W\dot{q}\leq w ,
+						\end{align*}$$</p>
+					<p>onde $q\equiv q(t)\in \mathbb{R}^n$ é o vetor de configurações do robô, $r\equiv
+						r(q):\mathbb{R}^n\mapsto\mathbb{R}^m$ é uma função de tarefa,
+						$J_r\equiv J_r(q)=\frac{\partial r(q)}{\partial q}\in \mathbb{R}^{m\times n}$ é a matriz
+						jacobiana de tarefa e $K_r \in (0, \infty)$ é um ganho.
+						$W\equiv W(q)\in \mathbb{R}^{\ell \times n}$ e $w\equiv w(q)\in \mathbb{R}^{\ell}$ definem as
+						restrições de desigualdade.</p>
+				</div>
+			</section>
+			<section data-auto-animate>
+				<h2>CONTROLE</h2>
+				<h3>Função de tarefa</h3>
+				<div class="slidecontent">
+					<p>A tarefa corresponde a atingir uma pose alvo, portanto pode ser definida por (GONÇALVES, 2022a):
+					</p>
+					<p>$$\begin{align*}
+						r(q) = \begin{pmatrix}p_{e}(q) -
+						p_{tg}\\1-x_{tg}^Tx_{e}(q)\\1-y_{tg}^Ty_{e}(q)\\1-z_{tg}^Tz_{e}(q)\end{pmatrix}\in\mathbb{R}^6,
 						\end{align*}$$
-						</p>
-						<p>onde $\sigma$ é um fator de amortecimento, $\delta_{76} \equiv q_{7,0} - q_{6,0}$ e $\delta_{86} \equiv q_{8,0} - q_{6,0}$, sendo $q_{6,0}, q_{7,0}\ \text{e}\  q_{8,0}$ as 
-							configurações iniciais das juntas  $q_6, q_7$ e $q_8$, respectivamente.</p>
-					</div>
-				</section>
-				<section data-auto-animate>
-					<h2>CONTROLE</h2>
-					<h3>Restrições de juntas passivas</h3>
-					<div class="slidecontent">
-						<p>Tomando-se as definições matriciais </p>
-						<p>
-							$$ \begin{align*}
-							\widetilde{q}_{76} &\equiv \begin{bmatrix}
-								0 & 0 & 0 & 0 & 0 & -1 & 1 & 0 & 0
-							\end{bmatrix}\\
-							\widetilde{q}_{86} &\equiv \begin{bmatrix}
-								0 & 0 & 0 & 0 & 0 & -1 & 0 & 1 & 0
-							\end{bmatrix}
+					</p>
+					<p>onde $p_{e}(q) \in \mathbb{R}^{3}$ é a posição do centro do referencial do efetuador, $p_{tg}\in
+						\mathbb{R}^{3}$ é a posição do centro do alvo,
+						$x_e(q), y_e(q), z_e(q)\in\mathbb{R}^3$ são os eixos $x,y, z$ do referencial do efetuador e
+						$x_{tg}, y_{tg}, z_{tg}\in\mathbb{R}^3$ são os eixos
+						$x,y, z$ do alvo. Todos os elementos são medidos no referencial do mundo.
+					</p>
+				</div>
+			</section>
+			<section data-auto-animate>
+				<h2>CONTROLE</h2>
+				<h3>Função de tarefa</h3>
+				<div class="slidecontent">
+					<p>$$\begin{align*}
+						r(q) = \begin{pmatrix}p_{e}(q) -
+						p_{tg}\\1-x_{tg}^Tx_{e}(q)\\1-y_{tg}^Ty_{e}(q)\\1-z_{tg}^Tz_{e}(q)\end{pmatrix}\in\mathbb{R}^6,
 						\end{align*}$$
-						</p>
-						<p>pode-se definir as restrições por meio da seguinte inequação.</p>
-						<p>
-							$$ \begin{equation*}
-							\begin{bmatrix}
-							\widetilde{q}_{76}\\\widetilde{q}_{86} \\ 
-							-\widetilde{q}_{76}\\ -\widetilde{q}_{86}
-							\end{bmatrix}\dot{q} \le \begin{bmatrix}
-							-\sigma\left(q_7-q_6-\delta_{76}\right) \\ -\sigma\left(q_8-q_6-\delta_{86}\right)\\
-							 \sigma\left(q_7-q_6-\delta_{76}\right) \\ \sigma\left(q_8-q_6-\delta_{86}\right)
-							\end{bmatrix}
+					</p>
+					<p>$$\begin{align*}
+						J_r(q) = \frac{\partial r(q)}{\partial q}=\begin{bmatrix}
+						J_p(q) \\ x_{tg}^TS\left(x_e\left(q\right)\right)J_\omega(q) \\ y_{tg}^TS(y_e(q))J_\omega(q) \\
+						z_{tg}^TS(z_e(q))J_\omega(q)
+						\end{bmatrix} \in\mathbb{R}^{6\times n},
+						\end{align*}$$</p>
+					<p> onde $J_p(q)\in\mathbb{R}^{3\times n}$ é a jacobiana de posição do efetuador, que são as três
+						primeiras linhas
+						de sua jacobiana geométrica $J_{geo}\in\mathbb{R}^{6\times n}$,
+						$J_\omega(q)\in\mathbb{R}^{3\times n}$ é a jacobiana de orientação do efetuador, que são as
+						três últimas linhas de $J_{geo}$. $S$ é um operador que mapeia um vetor em sua respectiva matriz
+						antissimétrica</p>
+
+				</div>
+			</section>
+			<!------------------------------------------------------------
+			-------------------------- RESTRICOES ------------------------
+			------------------------------------------------------------>
+			<section data-auto-animate>
+				<h2>CONTROLE</h2>
+				<h3>Restrições de colisão externa</h3>
+				<div class="slidecontent">
+					<p> Pode ser definida pela seguinte inequação diferencial, adotando-se uma distância de segurança
+						$d_\text{safe}$ e um
+						coeficiente de amortecimento $\eta$ (KANOUN; LAMIRAUX; WIEBER, 2011).
+					</p>
+					<p>$$\begin{align*}
+						\frac{d}{dt} \Psi_{C_iD_j} &\ge -\eta \left(\Psi_{C_iD_j}-d_\text{safe}\right)\\
+						\implies J_{\Psi_{C_iD_j}}^T\dot{q} &\ge -\eta \left(\Psi_{C_iD_j}-d_\text{safe}\right)
+						\end{align*}$$</p>
+				</div>
+			</section>
+			<section data-auto-animate>
+				<h2>CONTROLE</h2>
+				<h3>Restrições de colisão externa</h3>
+				<div class="slidecontent">
+					<p style="font-size: 20pt;"> Dado</p>
+					<p style="font-size:16pt ;">
+						$$ \begin{align*}
+						b= \begin{bmatrix} \Psi_{C_{1}D_{1}} \\ \Psi_{C_{2}D_{1}} \\ \vdots \\ \Psi_{C_{p}D_{1}} \\
+						\Psi_{C_{1}D_{2}} \\ \vdots \\ \Psi_{C_{p}D_{l}}
+						\end{bmatrix} \in \mathbb{R}^{p\cdot l},\quad
+						A= \begin{bmatrix} J_{\Psi_{C_{1}D_{1}}}^{T} \\ J_{\Psi_{C_{2}D_{1}}}^{T} \\ \vdots \\
+						J_{\Psi_{C_{p}D_{1}}}^{T} \\ J_{\Psi_{C_{1}D_{2}}}^{T} \\
+						\vdots \\ J_{\Psi_{C_{p}D_{l}}}^{T} \end{bmatrix} \in \mathbb{R}^{(p\cdot l)\times n}
+						\end{align*} $$
+					</p>
+					<p>A restrição é expressa por $$-A \dot{q} \leq \eta \left(b - d_\text{safe}\right) $$</p>
+				</div>
+			</section>
+			<section data-auto-animate>
+				<h2>CONTROLE</h2>
+				<h3>Restrições de colisão externa</h3>
+				<div class="slidecontent">
+					<p> O custo computacional para se calcular todas as distâncias e jacobianas é caro, portanto basta
+						tomar as
+						$k$ distâncias mais críticas (isso é feito internamente pelo simulador via hierarquia de
+						primitivas).</p>
+					<p>Dessa forma,
+						$\bar{b}\in\mathbb{R}^k$ que contém apenas as linhas de $b$ que apresentam as $k$ menores
+						distâncias $\Psi_{C_iD_j}$. Suas respectivas jacobianas são
+						armazenadas em uma matriz $\bar{A}\in\mathbb{R}^{k\times n}$. As restrições se tornam
+					</p>
+					<p>$$-\bar{A} \dot{q} \leq \eta \left(\bar{b} - d_\text{safe}\right)$$</p>
+				</div>
+			</section>
+			<section data-auto-animate>
+				<h2>CONTROLE</h2>
+				<h3>Restrições de colisão interna</h3>
+				<div class="slidecontent">
+					<p>
+						Análoga às restrições de colisão externa, mas cada $D_j$ representa um outro elo não subsequente
+						do robô. As restrições podem ser
+						definidas por
+					</p>
+					<p>$$-\bar{A}_\text{auto} \dot{q} \leq \eta_\text{auto} \left(\bar{b}_\text{auto} -
+						d_\text{safe}\right),$$</p>
+					<p>onde, devido a hierarquia de primitivas, $\bar{A}_\text{auto}\in\mathbb{R}^{g\times n},
+						\bar{b}_\text{auto}\in\mathbb{R}^{g}$.</p>
+				</div>
+			</section>
+			<section data-auto-animate>
+				<h2>CONTROLE</h2>
+				<h3>Restrições de limites de juntas</h3>
+				<div class="slidecontent">
+					<p>Basta impor que a velocidade de junta $\dot{q}$ satisfaça</p>
+					<p>
+						$$ \begin{align*}&\xi\left(q_{\text{min}} - q\right) \leq I\dot{q} \leq \xi\left(q_{\text{max}}
+						- q\right)\\
+						&\implies \begin{cases} I\dot{q} \leq \xi\left(q_{\text{max}} - q\right)\\
+						- I\dot{q} \leq -\xi\left(q_{\text{min}} - q\right)\end{cases},\end{align*}$$
+					</p>
+					<p>onde $q_\text{min}, q_\text{max}\in\mathbb{R}^n$ são, respectivamente, vetores que contém os
+						valores mínimos e máximos de cada junta,
+						$\xi$ um fator de amortecimento e $I$ a matriz identidade de tamanho $n \times n$.</p>
+				</div>
+			</section>
+			<section data-auto-animate>
+				<h2>CONTROLE</h2>
+				<h3>Restrições de juntas passivas</h3>
+				<div class="slidecontent">
+					<p>Basta garantir que a configuração das juntas $q_7$ e $q_8$ mantenham uma diferença constante com
+						a configuração $q_6$, sendo o manipulador
+						representado pela configuração $(q_1, q_2, \dots, q_9)$, ou seja</p>
+					<p>
+						$$ \begin{align*}
+						\dot{q}_7 - \dot{q}_6 &= -\sigma\left(q_7 - q_6 - \delta_{76}\right) \\
+						\dot{q}_8 - \dot{q}_6 &= -\sigma\left(q_8 - q_6 - \delta_{86}\right) ,
+						\end{align*}$$
+					</p>
+					<p>onde $\sigma$ é um fator de amortecimento, $\delta_{76} \equiv q_{7,0} - q_{6,0}$ e $\delta_{86}
+						\equiv q_{8,0} - q_{6,0}$, sendo $q_{6,0}, q_{7,0}\ \text{e}\ q_{8,0}$ as
+						configurações iniciais das juntas $q_6, q_7$ e $q_8$, respectivamente.</p>
+				</div>
+			</section>
+			<section data-auto-animate>
+				<h2>CONTROLE</h2>
+				<h3>Restrições de juntas passivas</h3>
+				<div class="slidecontent">
+					<p>Tomando-se as definições matriciais </p>
+					<p>
+						$$ \begin{align*}
+						\widetilde{q}_{76} &\equiv \begin{bmatrix}
+						0 & 0 & 0 & 0 & 0 & -1 & 1 & 0 & 0
+						\end{bmatrix}\\
+						\widetilde{q}_{86} &\equiv \begin{bmatrix}
+						0 & 0 & 0 & 0 & 0 & -1 & 0 & 1 & 0
+						\end{bmatrix}
+						\end{align*}$$
+					</p>
+					<p>pode-se definir as restrições por meio da seguinte inequação.</p>
+					<p>
+						$$ \begin{equation*}
+						\begin{bmatrix}
+						\widetilde{q}_{76}\\\widetilde{q}_{86} \\
+						-\widetilde{q}_{76}\\ -\widetilde{q}_{86}
+						\end{bmatrix}\dot{q} \le \begin{bmatrix}
+						-\sigma\left(q_7-q_6-\delta_{76}\right) \\ -\sigma\left(q_8-q_6-\delta_{86}\right)\\
+						\sigma\left(q_7-q_6-\delta_{76}\right) \\ \sigma\left(q_8-q_6-\delta_{86}\right)
+						\end{bmatrix}
 						\end{equation*} $$
-						</p>
-					</div>
-				</section>
-				<section data-auto-animate>
-					<h2>CONTROLE</h2>
-					<h3>Conjunto total de restrições</h3>
-					<div class="slidecontent">
-						<p>Concatenando-se todas as restrições, tem-se</p>
-						<p style="font-size: 18pt;">
-							$$ \begin{equation*}
-							W = \begin{bmatrix}
-							-\bar{A}\\-\bar{A}_\text{auto}\\ I_{n\times n} \\ -I_{n\times n} \\ \widetilde{q}_{76}\\\widetilde{q}_{86} \\ -\widetilde{q}_{76}\\ -\widetilde{q}_{86}
-							\end{bmatrix} \in \mathbb{R}^{(k+g+2n+4)\times n}
-							,\quad 
-							w=\begin{bmatrix}
-							\eta\left(\bar{b} - d_\text{safe}\right) \\
-							\eta_\text{auto}\left(\bar{b}_\text{auto} - d_\text{safe}\right) \\
-							\xi\left(q_\text{max} - q\right) \\
-							-\xi\left(q_\text{min} - q\right) \\
-							-\sigma\left(q_7-q_6-\delta_{76}\right) \\ -\sigma\left(q_8-q_6-\delta_{86}\right) \\
-							\sigma\left(q_7-q_6-\delta_{76}\right) \\ \sigma\left(q_8-q_6-\delta_{86}\right)
-							\end{bmatrix} \in \mathbb{R}^{(k+g+2n+4)}
+					</p>
+				</div>
+			</section>
+			<section data-auto-animate>
+				<h2>CONTROLE</h2>
+				<h3>Conjunto total de restrições</h3>
+				<div class="slidecontent">
+					<p>Concatenando-se todas as restrições, tem-se</p>
+					<p style="font-size: 18pt;">
+						$$ \begin{equation*}
+						W = \begin{bmatrix}
+						-\bar{A}\\-\bar{A}_\text{auto}\\ I_{n\times n} \\ -I_{n\times n} \\
+						\widetilde{q}_{76}\\\widetilde{q}_{86} \\ -\widetilde{q}_{76}\\ -\widetilde{q}_{86}
+						\end{bmatrix} \in \mathbb{R}^{(k+g+2n+4)\times n}
+						,\quad
+						w=\begin{bmatrix}
+						\eta\left(\bar{b} - d_\text{safe}\right) \\
+						\eta_\text{auto}\left(\bar{b}_\text{auto} - d_\text{safe}\right) \\
+						\xi\left(q_\text{max} - q\right) \\
+						-\xi\left(q_\text{min} - q\right) \\
+						-\sigma\left(q_7-q_6-\delta_{76}\right) \\ -\sigma\left(q_8-q_6-\delta_{86}\right) \\
+						\sigma\left(q_7-q_6-\delta_{76}\right) \\ \sigma\left(q_8-q_6-\delta_{86}\right)
+						\end{bmatrix} \in \mathbb{R}^{(k+g+2n+4)}
 						\end{equation*}$$
-						</p>
-						<p>Obtendo-se por fim a representação</p>
-						<p>
-							$$ \begin{equation*} W \dot{q} \le w \end{equation*} $$
-						</p>
+					</p>
+					<p>Obtendo-se por fim a representação</p>
+					<p>
+						$$ \begin{equation*} W \dot{q} \le w \end{equation*} $$
+					</p>
+				</div>
+			</section>
+			<section data-auto-animate>
+				<h2>CONTROLE</h2>
+				<h3>Constantes adotadas</h3>
+				<div class="slidecontent">
+					<table style="font-size: 20pt;">
+						<th>Constante</th>
+						<th>Valor</th>
+						<tr>
+							<td>$K_r$</td>
+							<td>$2$</td>
+						</tr>
+						<tr>
+							<td>$\mu$</td>
+							<td>$0.5\,\text{m}$</td>
+						</tr>
+						<tr>
+							<td>$\mu_\text{auto}$ </td>
+							<td>$0.25\,\text{m}$</td>
+						</tr>
+						<tr>
+							<td>$d_\text{safe}$</td>
+							<td>$0.01\,\text{m}$</td>
+						</tr>
+						<tr>
+							<td>$\eta$</td>
+							<td>$0.5$</td>
+						</tr>
+						<tr>
+							<td>$\eta_\text{auto}$ </td>
+							<td>$0.5$</td>
+						</tr>
+						<tr>
+							<td>$\xi$ </td>
+							<td>$1$</td>
+						</tr>
+						<tr>
+							<td>$\sigma$ </td>
+							<td>$0.2$</td>
+						</tr>
+					</table>
+				</div>
+			</section>
+			<!------------------------------------------------------------
+			------------------------- RESULTADOS -------------------------
+			------------------------------------------------------------>
+			<section>
+				<h1>RESULTADOS</h1>
+			</section>
+			<section data-auto-animate>
+				<h2> Resultados</h2>
+				<h3 style="margin-bottom:0">COM RESTRIÇÕES DE COLISÃO</h3>
+				<div class="slidecontent">
+					<!-- <div style="width:100%; text-align:center; vertical-align: top; display:table"> -->
+					<div class="simulation">
+						<iframe scrolling="no" data-src="resources/sim_control.html"
+							style="width:900px;height:650px"></iframe>
 					</div>
-				</section>
-				<section data-auto-animate>
-					<h2>CONTROLE</h2>
-					<h3>Constantes adotadas</h3>
-					<div class="slidecontent">
-						<table style="font-size: 20pt;">
-							<th>Constante</th>
-							<th>Valor</th>
-							<tr>
-							  <td>$K_r$</td>
-							  <td>$2$</td>
-							</tr>
-							<tr>
-							  <td>$\mu$</td>
-							  <td>$0.5\,\text{m}$</td>
-							</tr>
-							<tr>
-								<td>$\mu_\text{auto}$ </td>
-								<td>$0.25\,\text{m}$</td>
-							</tr>
-							<tr>
-								<td>$d_\text{safe}$</td>
-								<td>$0.01\,\text{m}$</td>
-							</tr>
-							<tr>
-								<td>$\eta$</td>
-								<td>$0.5$</td>
-							</tr>
-							<tr>
-								<td>$\eta_\text{auto}$ </td>
-								<td>$0.5$</td>
-							</tr>
-							<tr>
-								<td>$\xi$ </td>
-								<td>$1$</td>
-							</tr>
-							<tr>
-								<td>$\sigma$ </td>
-								<td>$0.2$</td>
-							</tr>
-						  </table> 
+					<!-- </div> -->
+				</div>
+			</section>
+			<section data-auto-animate>
+				<h2> Resultados</h2>
+				<h3>COM RESTRIÇÕES DE COLISÃO</h3>
+				<div class="slidecontent">
+					<p style="text-align: center; margin: 0;">Função de tarefa ao longo do tempo de execução</p>
+					<figure class="figlegend">
+						<img src="resources/Result_tarefa.png" style="width: 75%; height:75%">
+					</figure>
+				</div>
+			</section>
+			<section data-auto-animate>
+				<h2> Resultados</h2>
+				<h3>COM RESTRIÇÕES DE COLISÃO</h3>
+				<div class="slidecontent">
+					<p style="text-align: center; margin: 0;">Distâncias obtidas pela estimativa de colisões externas e
+						auto-colisão ao longo
+						do tempo de execução</p>
+					<figure class="figlegend">
+						<img src="resources/Result_distances.png" style="width: 75%; height:75%">
+					</figure>
+				</div>
+			</section>
+			<section data-auto-animate>
+				<h2> Resultados</h2>
+				<h3>COM RESTRIÇÕES DE COLISÃO</h3>
+				<div class="slidecontent">
+					<p style="text-align: center; margin: 0;">Configuração das juntas ao longo do tempo de execução</p>
+					<figure class="figlegend">
+						<img src="resources/Result_configs.png" style="width: 75%; height:75%">
+					</figure>
+				</div>
+			</section>
+			<section data-auto-animate>
+				<h2> Resultados</h2>
+				<h3>COM RESTRIÇÕES DE COLISÃO</h3>
+				<div class="slidecontent">
+					<p style="text-align: center; margin: 0;">Número de restrições, ou número de linhas de $W$, por
+						iteração</p>
+					<figure class="figlegend">
+						<img src="resources/Result_matrixsize.png" style="width: 75%; height:75%">
+					</figure>
+				</div>
+			</section>
+			<section data-auto-animate>
+				<h2> Resultados</h2>
+				<h3>COM RESTRIÇÕES DE COLISÃO</h3>
+				<div class="slidecontent">
+					<p style="text-align: center; margin: 0;">Tempo gasto para a construção do problema de otimização e
+						para a sua
+						respectiva solução em cada iteração</p>
+					<figure class="figlegend">
+						<img src="resources/Result_tempo.png" style="width: 75%; height:75%">
+					</figure>
+				</div>
+			</section>
+			<!------------------------------------------------------------
+			------------------------- SEM RESTRICAO ----------------------
+			------------------------------------------------------------>
+			<section data-auto-animate>
+				<h2> Resultados</h2>
+				<h3 style="margin-bottom:0">SEM RESTRIÇÕES DE COLISÃO</h3>
+				<div class="slidecontent">
+					<div class="simulation">
+						<iframe scrolling="no" data-src="resources/sim_control_without_collision_restriction.html"
+							style="width:900px;height:650px"></iframe>
 					</div>
-				</section>
-				<!------------------------------------------------------------
-				------------------------- RESULTADOS -------------------------
-				 ------------------------------------------------------------>
-				<section >
-					<h1>RESULTADOS</h1>
-				</section>
-				<section data-auto-animate>
-					<h2> Resultados</h2>
-					<h3 style="margin-bottom:0">COM RESTRIÇÕES DE COLISÃO</h3>
-					<div class="slidecontent">
-						<!-- <div style="width:100%; text-align:center; vertical-align: top; display:table"> -->
-							<div class="simulation" >
-								<iframe scrolling="no" data-src="resources/sim_control.html" style="width:900px;height:650px"></iframe>
-							</div>
-						<!-- </div> -->
-					</div>
-				</section>
-				<section data-auto-animate>
-					<h2> Resultados</h2>
-					<h3>COM RESTRIÇÕES DE COLISÃO</h3>
-					<div class="slidecontent">
-						<p style="text-align: center; margin: 0;">Função de tarefa ao longo do tempo de execução</p>
-						<figure class="figlegend">
-							<img src="resources/Result_tarefa.png" style="width: 75%; height:75%">
-						</figure>
-					</div>
-				</section>
-				<section data-auto-animate>
-					<h2> Resultados</h2>
-					<h3>COM RESTRIÇÕES DE COLISÃO</h3>
-					<div class="slidecontent">
-						<p style="text-align: center; margin: 0;">Distâncias obtidas pela estimativa de colisões externas e auto-colisão ao longo
-							do tempo de execução</p>
-						<figure class="figlegend">
-							<img src="resources/Result_distances.png" style="width: 75%; height:75%">
-						</figure>
-					</div>
-				</section>
-				<section data-auto-animate>
-					<h2> Resultados</h2>
-					<h3>COM RESTRIÇÕES DE COLISÃO</h3>
-					<div class="slidecontent">
-						<p style="text-align: center; margin: 0;">Configuração das juntas ao longo do tempo de execução</p>
-						<figure class="figlegend">
-							<img src="resources/Result_configs.png" style="width: 75%; height:75%">
-						</figure>
-					</div>
-				</section>
-				<section data-auto-animate>
-					<h2> Resultados</h2>
-					<h3>COM RESTRIÇÕES DE COLISÃO</h3>
-					<div class="slidecontent">
-						<p style="text-align: center; margin: 0;">Número de restrições, ou número de linhas de $W$, por iteração</p>
-						<figure class="figlegend">
-							<img src="resources/Result_matrixsize.png" style="width: 75%; height:75%">
-						</figure>
-					</div>
-				</section>
-				<section data-auto-animate>
-					<h2> Resultados</h2>
-					<h3>COM RESTRIÇÕES DE COLISÃO</h3>
-					<div class="slidecontent">
-						<p style="text-align: center; margin: 0;">Tempo gasto para a construção do problema de otimização e para a sua
-							respectiva solução em cada iteração</p>
-						<figure class="figlegend">
-							<img src="resources/Result_tempo.png" style="width: 75%; height:75%">
-						</figure>
-					</div>
-				</section>
-				<!------------------------------------------------------------
-				------------------------- SEM RESTRICAO ----------------------
-				 ------------------------------------------------------------>
-				<section data-auto-animate>
-					<h2> Resultados</h2>
-					<h3 style="margin-bottom:0">SEM RESTRIÇÕES DE COLISÃO</h3>
-					<div class="slidecontent">
-						<div class="simulation" >
-							<iframe scrolling="no" data-src="resources/sim_control_without_collision_restriction.html" style="width:900px;height:650px"></iframe>
-						</div>
-					</div>
-				</section>
-				<section data-auto-animate>
-					<h2> Resultados</h2>
-					<h3>SEM RESTRIÇÕES DE COLISÃO</h3>
-					<div class="slidecontent">
-						<p style="text-align: center; margin: 0;">Função de tarefa ao longo do tempo de execução</p>
-						<figure class="figlegend">
-							<img src="resources/Results_WITHOUTCOLLISION_tarefa.png" style="width: 75%; height:75%">
-						</figure>
-					</div>
-				</section>
-				<section data-auto-animate>
-					<h2> Resultados</h2>
-					<h3>SEM RESTRIÇÕES DE COLISÃO</h3>
-					<div class="slidecontent">
-						<p style="text-align: center; margin: 0;">Distâncias obtidas pela estimativa de colisões externas e auto-colisão ao longo
-							do tempo de execução</p>
-						<figure class="figlegend">
-							<img src="resources/Results_WITHOUTCOLLISION_distance.png" style="width: 75%; height:75%">
-						</figure>
-					</div>
-				</section>
-				<section data-auto-animate>
-					<h2> Resultados</h2>
-					<h3>SEM RESTRIÇÕES DE COLISÃO</h3>
-					<div class="slidecontent">
-						<div class="row-sidebysideIMG">
-							<div class="col-sidebysideIMG"><figure class="figlegend">
-								<div><img src="resources/Results_WITHOUTCOLLISION_primeiracolisao.png" width="90%" height="90%"></div>
+				</div>
+			</section>
+			<section data-auto-animate>
+				<h2> Resultados</h2>
+				<h3>SEM RESTRIÇÕES DE COLISÃO</h3>
+				<div class="slidecontent">
+					<p style="text-align: center; margin: 0;">Função de tarefa ao longo do tempo de execução</p>
+					<figure class="figlegend">
+						<img src="resources/Results_WITHOUTCOLLISION_tarefa.png" style="width: 75%; height:75%">
+					</figure>
+				</div>
+			</section>
+			<section data-auto-animate>
+				<h2> Resultados</h2>
+				<h3>SEM RESTRIÇÕES DE COLISÃO</h3>
+				<div class="slidecontent">
+					<p style="text-align: center; margin: 0;">Distâncias obtidas pela estimativa de colisões externas e
+						auto-colisão ao longo
+						do tempo de execução</p>
+					<figure class="figlegend">
+						<img src="resources/Results_WITHOUTCOLLISION_distance.png" style="width: 75%; height:75%">
+					</figure>
+				</div>
+			</section>
+			<section data-auto-animate>
+				<h2> Resultados</h2>
+				<h3>SEM RESTRIÇÕES DE COLISÃO</h3>
+				<div class="slidecontent">
+					<div class="row-sidebysideIMG">
+						<div class="col-sidebysideIMG">
+							<figure class="figlegend">
+								<div><img src="resources/Results_WITHOUTCOLLISION_primeiracolisao.png" width="90%"
+										height="90%"></div>
 								<figcaption style="margin-left: 2.5%;">Primeira colisão</figcaption>
-							</figure></div>
-							<div class="col-sidebysideIMG"><figure class="figlegend">
-								<div><img src="resources/Results_WITHOUTCOLLISION_segundacolisao.png" width="90%" height="90%"></div>
+							</figure>
+						</div>
+						<div class="col-sidebysideIMG">
+							<figure class="figlegend">
+								<div><img src="resources/Results_WITHOUTCOLLISION_segundacolisao.png" width="90%"
+										height="90%"></div>
 								<figcaption style="margin-left: 2.5%;">Segunda colisão</figcaption>
-							</figure></div>
+							</figure>
 						</div>
 					</div>
-				</section>
-				<section data-auto-animate>
-					<h2> Resultados</h2>
-					<h3>SEM RESTRIÇÕES DE COLISÃO</h3>
-					<div class="slidecontent">
-						<p style="text-align: center; margin: 0;">Configuração das juntas ao longo do tempo de execução</p>
-						<figure class="figlegend">
-							<img src="resources/Results_WITHOUTCOLLISION_config.png" style="width: 75%; height:75%">
-						</figure>
-					</div>
-				</section>
-				<section data-auto-animate>
-					<h2>Resultados</h2>
-					<h3>SEM RESTRIÇÕES DE COLISÃO</h3>
-					<div class="slidecontent">
-						<p style="text-align: center; margin: 0;">Tempo gasto para a construção do problema de otimização e para a sua
-							respectiva solução em cada iteração</p>
-						<figure class="figlegend">
-							<img src="resources/Results_WITHOUTCOLLISION_Tempo.png" style="width: 75%; height:75%">
-						</figure>
-					</div>
-				</section>
-				<!------------------------------------------------------------
-				--------------------- TRABALHOS FUTUROS ----------------------
-				 ------------------------------------------------------------>
-				<section>
-					<h1>TRABALHOS FUTUROS</h1>
-				</section>
-				<section data-auto-animate>
-					<h2>TRABALHOS FUTUROS</h2>
-					<div class="slidecontent">
-						<div class="leftlist" style="justify-content: left; text-align:center">
+				</div>
+			</section>
+			<section data-auto-animate>
+				<h2> Resultados</h2>
+				<h3>SEM RESTRIÇÕES DE COLISÃO</h3>
+				<div class="slidecontent">
+					<p style="text-align: center; margin: 0;">Configuração das juntas ao longo do tempo de execução</p>
+					<figure class="figlegend">
+						<img src="resources/Results_WITHOUTCOLLISION_config.png" style="width: 75%; height:75%">
+					</figure>
+				</div>
+			</section>
+			<section data-auto-animate>
+				<h2>Resultados</h2>
+				<h3>SEM RESTRIÇÕES DE COLISÃO</h3>
+				<div class="slidecontent">
+					<p style="text-align: center; margin: 0;">Tempo gasto para a construção do problema de otimização e
+						para a sua
+						respectiva solução em cada iteração</p>
+					<figure class="figlegend">
+						<img src="resources/Results_WITHOUTCOLLISION_Tempo.png" style="width: 75%; height:75%">
+					</figure>
+				</div>
+			</section>
+			<!------------------------------------------------------------
+			--------------------- TRABALHOS FUTUROS ----------------------
+			------------------------------------------------------------>
+			<section>
+				<h1>TRABALHOS FUTUROS</h1>
+			</section>
+			<section data-auto-animate>
+				<h2>TRABALHOS FUTUROS</h2>
+				<div class="slidecontent">
+					<div class="leftlist" style="justify-content: left; text-align:center">
 						<ul>
-							<li>Estudar a possibilidade de se obter uma nova forma de representação para as restrições</li>
+							<li>Estudar a possibilidade de se obter uma nova forma de representação para as restrições
+							</li>
 							<li>Obter formas menos menos custosas de se estimar distâncias</li>
 							<li>Pensar em formas reativas de se evitar mínimos locais</li>
 						</ul>
-						</div>
 					</div>
-				</section>
-				<!------------------------------------------------------------
-				-------------------------- CONCLUSOES ------------------------
-				 ------------------------------------------------------------>
-				<section>
-					<h1>CONCLUSÕES</h1>
-				</section>
-				<section data-auto-animate>
-					<h2>CONCLUSÕES</h2>
-					<div class="slidecontent">
-						<div class="leftlist" style="justify-content: left; text-align:center; font-size: 30pt;">
-							<ul>
-								<li>Parâmetros de Denavit-Hartenberg obtidos se mostraram satisfatórios</li>
-								<li>A composição de primitivas de colisão escolhida também se mostrou eficaz</li>
-								<li>A hierarquia de primitivas se mostrou importante para a redução de custo computacional</li>
-								<li>Uso de programação quadrática convexa é proveitoso para o controle com restrições de desigualdade</li>
-								<li>Processo de estimar todas as distâncias $\Psi_{C_iD_j}$ lento</li>
-								<li>Estratégia empregada tem possibilidade de convergir a mínimos locais</li>
-							</ul>
-						</div>
+				</div>
+			</section>
+			<!------------------------------------------------------------
+			-------------------------- CONCLUSOES ------------------------
+			------------------------------------------------------------>
+			<section>
+				<h1>CONCLUSÕES</h1>
+			</section>
+			<section data-auto-animate>
+				<h2>CONCLUSÕES</h2>
+				<div class="slidecontent">
+					<div class="leftlist" style="justify-content: left; text-align:center; font-size: 30pt;">
+						<ul>
+							<li>Parâmetros de Denavit-Hartenberg obtidos se mostraram satisfatórios</li>
+							<li>A composição de primitivas de colisão escolhida também se mostrou eficaz</li>
+							<li>A hierarquia de primitivas se mostrou importante para a redução de custo computacional
+							</li>
+							<li>Uso de programação quadrática convexa é proveitoso para o controle com restrições de
+								desigualdade</li>
+							<li>Processo de estimar todas as distâncias $\Psi_{C_iD_j}$ lento</li>
+							<li>Estratégia empregada tem possibilidade de convergir a mínimos locais</li>
+						</ul>
 					</div>
-				</section>
-				<!------------------------------------------------------------
-				------------------------- REFERENCIAS ------------------------
-				 ------------------------------------------------------------>
-				 <section>
-					<h1>referências</h1>
-				</section>
-				<section data-auto-animate>
-					<h2>referências</h2>
-					<div class="slidecontent">
-						<div class="leftlist" style="justify-content: left; text-align:center;">
-							<ul style="list-style-type: none; font-size: 16pt;">
-								<li style="margin: 10px 0;">BOYD, S.; DATTORRO, J. <em>Alternating Projections.</em>. 2003. Disponível em:
-									&lt;<a href="https://web.stanford.edu/class/ee392o/alt_proj.pdf" target="_blank">https://web.stanford.edu/class/ee392o/alt_proj.pdf</a>&gt;. 
-								</li>
-								<li style="margin: 10px 0;">BRADSHAW; GARETH. <em>Bounding volume hierarchies for level-of-detail collision
+				</div>
+			</section>
+			<!------------------------------------------------------------
+			------------------------- REFERENCIAS ------------------------
+			------------------------------------------------------------>
+			<section>
+				<h1>referências</h1>
+			</section>
+			<section data-auto-animate>
+				<h2>referências</h2>
+				<div class="slidecontent">
+					<div class="leftlist" style="justify-content: left; text-align:center;">
+						<ul style="list-style-type: none; font-size: 16pt;">
+							<li style="margin: 10px 0;">BOYD, S.; DATTORRO, J. <em>Alternating Projections.</em>. 2003.
+								Disponível em:
+								&lt;<a href="https://web.stanford.edu/class/ee392o/alt_proj.pdf"
+									target="_blank">https://web.stanford.edu/class/ee392o/alt_proj.pdf</a>&gt;.
+							</li>
+							<li style="margin: 10px 0;">BRADSHAW; GARETH. <em>Bounding volume hierarchies for
+									level-of-detail collision
 									handling</em>. 176 p. Tese (Doutorado) — Trinity College, 2002. Disponível em:
-									&lt;<a href="http://www.tara.tcd.ie/handle/2262/86786" target="_blank">http://www.tara.tcd.ie/handle/2262/86786</a>&gt;. 
-								</li>
-								<li style="margin: 10px 0;">CHENEY, W.; GOLDSTEIN, A. A. Proximity maps for convex sets. <em>Proceedings of
+								&lt;<a href="http://www.tara.tcd.ie/handle/2262/86786"
+									target="_blank">http://www.tara.tcd.ie/handle/2262/86786</a>&gt;.
+							</li>
+							<li style="margin: 10px 0;">CHENEY, W.; GOLDSTEIN, A. A. Proximity maps for convex sets.
+								<em>Proceedings of
 									the American Mathematical Society</em>. American Mathematical Society (AMS), v. 10,
-									n. 3, p. 448-450, 1959. ISSN 0002-9939. Disponível em: 
-									&lt;<a href="https://www.ams.org/proc/
+								n. 3, p. 448-450, 1959. ISSN 0002-9939. Disponível em:
+								&lt;<a href="https://www.ams.org/proc/
 									1959-010-03/S0002-9939-1959-0105008-8/" target="_blank">https://www.ams.org/proc/
-										1959-010-03/S0002-9939-1959-0105008-8/</a>&gt;. 
-								</li>
-								<li style="margin: 10px 0;">DINAS, S.; BAÑÓN, J. M. Revisión de literatura de jerarquía volúmenes acotantes
-									enfocados en detección de colisiones. <em>INGENIERÍA Y COMPETITIVIDAD</em>. v. 17, n. 1,
-									p. 49-62, jun. 2015. Disponível em: 
-									&lt;<a href="https://revistaingenieria.univalle.edu.co/index.php/ingenieria_y_competitividad/article/view/2200" target="_blank">https://revistaingenieria.univalle.edu.co/index.php/ingenieria_y_competitividad/article/view/2200</a>&gt;. 
-								</li>
-								<li style="margin: 10px 0;">ESCALANTE, R.; RAYDAN, M. <em>Alternating Projection Methods</em>. Philadelphia,
-									PA: Society for Industrial and Applied Mathematics, 2011. Disponível em:
-									&lt;<a href="https://epubs.siam.org/doi/abs/10.1137/9781611971941" target="_blank">https://epubs.siam.org/doi/abs/10.1137/9781611971941</a>&gt;. 
-								</li>
-								<li style="margin: 10px 0;">KANOUN, O.; LAMIRAUX, F.; WIEBER, P.-B. Kinematic control of redundant
-									manipulators: Generalizing the task-priority framework to inequality task. <em>IEEE Transactions on Robotics</em>. 
-									v. 27, n. 4, p. 785-792, aug 2011. ISSN 15523098. 
-								</li>
-								<li style="margin: 10px 0;">GONÇALVES, V. M. <em>Manipuladores Robóticos</em>. [S.l.]: GitHub, 2022. Disponível em:
-									&lt;<a href="https://viniciusmgn.github.io/aulas_manipuladores/" target="_blank">https://viniciusmgn.github.io/aulas_manipuladores/</a>&gt;. 
-								</li>
-								<li style="margin: 10px 0;">GONÇALVES, V. M. <em>UAIBot</em>. [S.l.]: GitHub, 2022. Disponível em:
-									&lt;<a href="https://github.com/viniciusmgn/uaibot_vinicius" target="_blank">https://github.com/viniciusmgn/uaibot_vinicius</a>&gt;. 
-								</li>
-							</ul>
-						</div>
+									1959-010-03/S0002-9939-1959-0105008-8/</a>&gt;.
+							</li>
+							<li style="margin: 10px 0;">DINAS, S.; BAÑÓN, J. M. Revisión de literatura de jerarquía
+								volúmenes acotantes
+								enfocados en detección de colisiones. <em>INGENIERÍA Y COMPETITIVIDAD</em>. v. 17, n. 1,
+								p. 49-62, jun. 2015. Disponível em:
+								&lt;<a
+									href="https://revistaingenieria.univalle.edu.co/index.php/ingenieria_y_competitividad/article/view/2200"
+									target="_blank">https://revistaingenieria.univalle.edu.co/index.php/ingenieria_y_competitividad/article/view/2200</a>&gt;.
+							</li>
+							<li style="margin: 10px 0;">ESCALANTE, R.; RAYDAN, M. <em>Alternating Projection
+									Methods</em>. Philadelphia,
+								PA: Society for Industrial and Applied Mathematics, 2011. Disponível em:
+								&lt;<a href="https://epubs.siam.org/doi/abs/10.1137/9781611971941"
+									target="_blank">https://epubs.siam.org/doi/abs/10.1137/9781611971941</a>&gt;.
+							</li>
+							<li style="margin: 10px 0;">KANOUN, O.; LAMIRAUX, F.; WIEBER, P.-B. Kinematic control of
+								redundant
+								manipulators: Generalizing the task-priority framework to inequality task. <em>IEEE
+									Transactions on Robotics</em>.
+								v. 27, n. 4, p. 785-792, aug 2011. ISSN 15523098.
+							</li>
+							<li style="margin: 10px 0;">GONÇALVES, V. M. <em>Manipuladores Robóticos</em>. [S.l.]:
+								GitHub, 2022. Disponível em:
+								&lt;<a href="https://viniciusmgn.github.io/aulas_manipuladores/"
+									target="_blank">https://viniciusmgn.github.io/aulas_manipuladores/</a>&gt;.
+							</li>
+							<li style="margin: 10px 0;">GONÇALVES, V. M. <em>UAIBot</em>. [S.l.]: GitHub, 2022.
+								Disponível em:
+								&lt;<a href="https://github.com/viniciusmgn/uaibot_vinicius"
+									target="_blank">https://github.com/viniciusmgn/uaibot_vinicius</a>&gt;.
+							</li>
+						</ul>
 					</div>
-				</section>
-			</div>
-			</div>
+				</div>
+			</section>
 		</div>
+	</div>
 
-		<script src="dist/reveal.js"></script>
-		<script src="plugin/notes/notes.js"></script>
-		<script src="plugin/markdown/markdown.js"></script>
-		<script src="plugin/highlight/highlight.js"></script>
-		<script src="plugin/math/math.js"></script>
-		<script>
-			// More info about initialization & config:
-			// - https://revealjs.com/initialization/
-			// - https://revealjs.com/config/
-			Reveal.initialize({
-				hash: true,
-				slideNumber: true,
-				width: 1200,
-				height: 700,
-				margin: 0.04,
-				minScale: 0.2,
-				maxScale: 2.0,
-				// Learn about plugins: https://revealjs.com/plugins/
-				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMath.KaTeX]
-			});
-		</script>
-	</body>
+	<script src="dist/reveal.js"></script>
+	<script src="plugin/notes/notes.js"></script>
+	<script src="plugin/markdown/markdown.js"></script>
+	<script src="plugin/highlight/highlight.js"></script>
+	<script src="plugin/math/math.js"></script>
+	<script>
+		// More info about initialization & config:
+		// - https://revealjs.com/initialization/
+		// - https://revealjs.com/config/
+		Reveal.initialize({
+			hash: true,
+			slideNumber: true,
+			width: 1200,
+			height: 700,
+			margin: 0.04,
+			minScale: 0.2,
+			maxScale: 2.0,
+			// Learn about plugins: https://revealjs.com/plugins/
+			plugins: [RevealMarkdown, RevealHighlight, RevealNotes, RevealMath.KaTeX]
+		});
+	</script>
+</body>
+
 </html>
