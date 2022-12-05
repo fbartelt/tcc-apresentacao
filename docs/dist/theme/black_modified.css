@@ -405,6 +405,12 @@ section.has-light-background, section.has-light-background h1, section.has-light
   float: left;
 }
 
+.reveal .leftlist ul ul{
+  margin-left: 40px;
+  padding: 0px;
+  float: left;
+}
+
 .reveal .leftlist img,
 .reveal .figlegend img{
   margin-bottom: 0px;
