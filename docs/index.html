@@ -127,7 +127,7 @@
 						<div style="width: 100%;font-size: 24pt;">
 							<ul>
 								<li style="opacity:0.5 ;">Sistema consiste em três subsistemas</li>
-								<li>Manipulador do lado do paciente consite em:</li>
+								<li>Manipulador do lado do paciente consiste em:</li>
 								<ul>
 									<li style="margin: 0 40px;"><span style="color: #068de9;">Parte passiva</span></li>
 								</ul>
@@ -155,7 +155,7 @@
 						<div style="width: 100%;font-size: 24pt;">
 							<ul>
 								<li style="opacity:0.5 ;">Sistema consiste em três subsistemas</li>
-								<li>Manipulador do lado do paciente consite em:</li>
+								<li>Manipulador do lado do paciente consiste em:</li>
 								<ul>
 									<li style="margin: 0 40px; opacity: 0.5;"><span style="color: #068de9;">Parte
 											passiva</span></li>
@@ -187,7 +187,7 @@
 						<div style="width: 100%;font-size: 24pt;">
 							<ul>
 								<li style="opacity:0.5 ;">Sistema consiste em três subsistemas</li>
-								<li>Manipulador do lado do paciente consite em:</li>
+								<li>Manipulador do lado do paciente consiste em:</li>
 								<ul>
 									<li style="margin: 0 40px; opacity: 0.5;"><span style="color: #068de9;">Parte
 											passiva</span></li>
@@ -219,7 +219,7 @@
 						<div style="width: 100%;font-size: 24pt;">
 							<ul>
 								<li style="opacity:0.5 ;">Sistema consiste em três subsistemas</li>
-								<li>Manipulador do lado do paciente consite em:</li>
+								<li>Manipulador do lado do paciente consiste em:</li>
 								<ul>
 									<li style="margin: 0 40px; opacity: 0.5;"><span style="color: #068de9;">Parte
 											passiva</span></li>
@@ -258,7 +258,7 @@
 						<div style="width: 100%;font-size: 24pt;">
 							<ul>
 								<li style="opacity:0.5 ;">Sistema consiste em três subsistemas</li>
-								<li style="opacity: 0.5;">Manipulador do lado do paciente consite em:</li>
+								<li style="opacity: 0.5;">Manipulador do lado do paciente consiste em:</li>
 								<ul>
 									<li style="margin: 0 40px; opacity: 0.5;"><span style="color: #068de9;">Parte
 											passiva</span></li>
@@ -492,8 +492,8 @@
 							style="position:absolute; text-align:center; margin-left: auto; margin-right: auto; left: 0; right: 0;">
 							\[\begin{align*}
 							&\Psi_{CD}(q) = \|x_c^*(q) - x_d^*(q)\|\\
-							&J_\Psi= \left(J_{{x_c}^*} - J_{{x_d}^*}\right)^T\cdot\frac{x_c^*(q) -
-							x_d^*(q)}{\Psi_{CD}(q)},
+							&J_\Psi= \left(J_{{x_c}^*} - J_{{x_d}^*}\right)^T\left(\frac{x_c^*(q) -
+							x_d^*(q)}{\Psi_{CD}(q)}\right),
 							\end{align*}\]
 							<p style="text-align:left; margin-left: 300px;">onde</p>
 							\[\begin{align*}
@@ -690,7 +690,7 @@
 			</section>
 			<section data-auto-animate>
 				<h2>CONTROLE</h2>
-				<h3>Restrições de colisão interna</h3>
+				<h3>Restrições de auto-colisão</h3>
 				<div class="slidecontent">
 					<p>
 						Análoga às restrições de colisão externa, mas cada $D_j$ representa um outro elo não subsequente
@@ -842,73 +842,6 @@
 			<section>
 				<h1>RESULTADOS</h1>
 			</section>
-			<section data-auto-animate>
-				<h2> Resultados</h2>
-				<h3 style="margin-bottom:0">COM RESTRIÇÕES DE COLISÃO</h3>
-				<div class="slidecontent">
-					<!-- <div style="width:100%; text-align:center; vertical-align: top; display:table"> -->
-					<div class="simulation">
-						<iframe scrolling="no" data-src="resources/sim_control.html"
-							style="width:900px;height:650px"></iframe>
-					</div>
-					<!-- </div> -->
-				</div>
-			</section>
-			<section data-auto-animate>
-				<h2> Resultados</h2>
-				<h3>COM RESTRIÇÕES DE COLISÃO</h3>
-				<div class="slidecontent">
-					<p style="text-align: center; margin: 0;">Função de tarefa ao longo do tempo de execução</p>
-					<figure class="figlegend">
-						<img src="resources/Result_tarefa.png" style="width: 75%; height:75%">
-					</figure>
-				</div>
-			</section>
-			<section data-auto-animate>
-				<h2> Resultados</h2>
-				<h3>COM RESTRIÇÕES DE COLISÃO</h3>
-				<div class="slidecontent">
-					<p style="text-align: center; margin: 0;">Distâncias obtidas pela estimativa de colisões externas e
-						auto-colisão ao longo
-						do tempo de execução</p>
-					<figure class="figlegend">
-						<img src="resources/Result_distances.png" style="width: 75%; height:75%">
-					</figure>
-				</div>
-			</section>
-			<section data-auto-animate>
-				<h2> Resultados</h2>
-				<h3>COM RESTRIÇÕES DE COLISÃO</h3>
-				<div class="slidecontent">
-					<p style="text-align: center; margin: 0;">Configuração das juntas ao longo do tempo de execução</p>
-					<figure class="figlegend">
-						<img src="resources/Result_configs.png" style="width: 75%; height:75%">
-					</figure>
-				</div>
-			</section>
-			<section data-auto-animate>
-				<h2> Resultados</h2>
-				<h3>COM RESTRIÇÕES DE COLISÃO</h3>
-				<div class="slidecontent">
-					<p style="text-align: center; margin: 0;">Número de restrições, ou número de linhas de $W$, por
-						iteração</p>
-					<figure class="figlegend">
-						<img src="resources/Result_matrixsize.png" style="width: 75%; height:75%">
-					</figure>
-				</div>
-			</section>
-			<section data-auto-animate>
-				<h2> Resultados</h2>
-				<h3>COM RESTRIÇÕES DE COLISÃO</h3>
-				<div class="slidecontent">
-					<p style="text-align: center; margin: 0;">Tempo gasto para a construção do problema de otimização e
-						para a sua
-						respectiva solução em cada iteração</p>
-					<figure class="figlegend">
-						<img src="resources/Result_tempo.png" style="width: 75%; height:75%">
-					</figure>
-				</div>
-			</section>
 			<!------------------------------------------------------------
 			------------------------- SEM RESTRICAO ----------------------
 			------------------------------------------------------------>
@@ -977,6 +910,16 @@
 				</div>
 			</section>
 			<section data-auto-animate>
+				<h2> Resultados</h2>
+				<h3>SEM RESTRIÇÕES DE COLISÃO</h3>
+				<div class="slidecontent">
+					<p style="text-align: center; margin: 0;">Velocidade das juntas ao longo do tempo de execução</p>
+					<figure class="figlegend">
+						<img src="resources/Results_WITHOUTCOLLISION_configvelocities.png" style="width: 75%; height:75%">
+					</figure>
+				</div>
+			</section>
+			<section data-auto-animate>
 				<h2>Resultados</h2>
 				<h3>SEM RESTRIÇÕES DE COLISÃO</h3>
 				<div class="slidecontent">
@@ -985,6 +928,86 @@
 						respectiva solução em cada iteração</p>
 					<figure class="figlegend">
 						<img src="resources/Results_WITHOUTCOLLISION_Tempo.png" style="width: 75%; height:75%">
+					</figure>
+				</div>
+			</section>
+			<!------------------------------------------------------------
+			----------------------- COM RESTRICAO -----------------------
+			------------------------------------------------------------>
+			<section data-auto-animate>
+				<h2> Resultados</h2>
+				<h3 style="margin-bottom:0">COM RESTRIÇÕES DE COLISÃO</h3>
+				<div class="slidecontent">
+					<!-- <div style="width:100%; text-align:center; vertical-align: top; display:table"> -->
+					<div class="simulation">
+						<iframe scrolling="no" data-src="resources/sim_control.html"
+							style="width:900px;height:650px"></iframe>
+					</div>
+					<!-- </div> -->
+				</div>
+			</section>
+			<section data-auto-animate>
+				<h2> Resultados</h2>
+				<h3>COM RESTRIÇÕES DE COLISÃO</h3>
+				<div class="slidecontent">
+					<p style="text-align: center; margin: 0;">Função de tarefa ao longo do tempo de execução</p>
+					<figure class="figlegend">
+						<img src="resources/Result_tarefa.png" style="width: 75%; height:75%">
+					</figure>
+				</div>
+			</section>
+			<section data-auto-animate>
+				<h2> Resultados</h2>
+				<h3>COM RESTRIÇÕES DE COLISÃO</h3>
+				<div class="slidecontent">
+					<p style="text-align: center; margin: 0;">Distâncias obtidas pela estimativa de colisões externas e
+						auto-colisão ao longo
+						do tempo de execução</p>
+					<figure class="figlegend">
+						<img src="resources/Result_distances.png" style="width: 75%; height:75%">
+					</figure>
+				</div>
+			</section>
+			<section data-auto-animate>
+				<h2> Resultados</h2>
+				<h3>COM RESTRIÇÕES DE COLISÃO</h3>
+				<div class="slidecontent">
+					<p style="text-align: center; margin: 0;">Configuração das juntas ao longo do tempo de execução</p>
+					<figure class="figlegend">
+						<img src="resources/Result_configs.png" style="width: 75%; height:75%">
+					</figure>
+				</div>
+			</section>
+			<section data-auto-animate>
+				<h2> Resultados</h2>
+				<h3>COM RESTRIÇÕES DE COLISÃO</h3>
+				<div class="slidecontent">
+					<p style="text-align: center; margin: 0;">Velocidade das juntas ao longo do tempo de execução</p>
+					<figure class="figlegend">
+						<img src="resources/Result_configsvelocities.png" style="width: 75%; height:75%">
+					</figure>
+				</div>
+			</section>
+			<section data-auto-animate>
+				<h2> Resultados</h2>
+				<h3>COM RESTRIÇÕES DE COLISÃO</h3>
+				<div class="slidecontent">
+					<p style="text-align: center; margin: 0;">Número de restrições, ou número de linhas de $W$, por
+						iteração</p>
+					<figure class="figlegend">
+						<img src="resources/Result_matrixsize.png" style="width: 75%; height:75%">
+					</figure>
+				</div>
+			</section>
+			<section data-auto-animate>
+				<h2> Resultados</h2>
+				<h3>COM RESTRIÇÕES DE COLISÃO</h3>
+				<div class="slidecontent">
+					<p style="text-align: center; margin: 0;">Tempo gasto para a construção do problema de otimização e
+						para a sua
+						respectiva solução em cada iteração</p>
+					<figure class="figlegend">
+						<img src="resources/Result_tempo.png" style="width: 75%; height:75%">
 					</figure>
 				</div>
 			</section>
@@ -1001,7 +1024,7 @@
 						<ul>
 							<li>Estudar a possibilidade de se obter uma nova forma de representação para as restrições
 							</li>
-							<li>Obter formas menos menos custosas de se estimar distâncias</li>
+							<li>Obter formas menos custosas de se estimar distâncias</li>
 							<li>Pensar em formas reativas de se evitar mínimos locais</li>
 						</ul>
 					</div>
